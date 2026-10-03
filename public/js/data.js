@@ -4,7 +4,7 @@
 const CONFIG = {
   whatsapp: '917406791221',          // number that receives booking requests (country code, no +)
   email: 'yaanbook@gmail.com',
-  formEndpoint: '',                  // optional: a Formspree / Getform URL to also receive requests as e-mail
+  formEndpoint: 'https://formspree.io/f/xnpneqrq',                // optional: a Formspree / Getform URL to also receive requests as e-mail
   gst: 0.18,                         // GST applied on the charter total
   nightHalt: { jet: 60000, turboprop: 35000, heli: 25000 },     // crew + aircraft night halt, per night
   landing: { jet: 25000, turboprop: 12000, heli: 8000 },        // landing, parking & handling per away stop

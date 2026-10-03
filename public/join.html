@@ -75,7 +75,7 @@ row();$('add').onclick=()=>row();
 // Pre-fill the fleet from the DGCA list when the operator picks their company.
 $('jOp').onchange=()=>{const o=DG&&DG.operators.find(x=>x.name===$('jOp').value);if(!o)return;$('jAop').value=o.aop;$('rows').innerHTML='';
   const base=CITY_BASE[o.city]||'';o.aircraft.forEach(a=>row({reg:a.reg,model:a.model,base,seats:parseInt(a.seats)||''}))};
-$('jGo').onclick=e=>{e.preventDefault();const out=$('jOut'),v=id=>$(id).value.trim();
+$('jGo').onclick=async e=>{e.preventDefault();const out=$('jOut'),v=id=>$(id).value.trim();
   if(!v('jOp')||!v('jName')||v('jPhone').replace(/\D/g,'').length<10){out.innerHTML='<div class="msg err">Add your company, contact name and a 10-digit phone number.</div>';return}
   const ac=[...document.querySelectorAll('.acrow')].map(r=>({reg:r.querySelector('.reg').value.trim().toUpperCase(),model:r.querySelector('.model').value.trim(),base:r.querySelector('.base').value.trim().toUpperCase(),rate:+r.querySelector('.rate').value||0,seats:+r.querySelector('.seats').value||0})).filter(a=>a.reg||a.model);
   const bad=ac.filter(a=>a.base&&!AIRPORTS[a.base]).map(a=>a.base);
@@ -83,7 +83,12 @@ $('jGo').onclick=e=>{e.preventDefault();const out=$('jOut'),v=id=>$(id).value.tr
   const json=JSON.stringify(ac.filter(a=>a.reg).map(a=>({reg:a.reg,base:a.base||undefined,rate:a.rate||undefined,seats:a.seats||undefined,operator:v('jOp')})),null,1);
   const text=`Operator listing\n${v('jOp')} (${v('jAop')||'permit no. not given'})\nContact: ${v('jName')}, ${v('jPhone')}${v('jMail')?', '+v('jMail'):''}\n\nAircraft:\n${ac.map(a=>`${a.reg||'?'} ${a.model} · at ${a.base||'?'} · ₹${a.rate.toLocaleString('en-IN')}/hr · ${a.seats||'?'} seats`).join('\n')}\n\nEmpty legs: ${v('jEl')||'none'}`;
   const links=[['Send on WhatsApp',`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(text)}`],['Send by email',`mailto:${CONFIG.email}?subject=${encodeURIComponent('Operator listing: '+v('jOp'))}&body=${encodeURIComponent(text+'\n\npartners.json:\n'+json)}`]];
-  out.innerHTML=`<div class="msg">Your listing is ready. Send it to YaanBook and we'll verify your permit and switch your aircraft to confirmed rates within one working day.<br>${links.map(([l,u])=>`<a href="${esc(u)}" target="_blank" rel="noopener">${l}</a>`).join('')}</div>`};
+  const btns=links.map(([l,u])=>`<a href="${esc(u)}" target="_blank" rel="noopener">${l}</a>`).join('');let sent=false;
+  if(CONFIG.formEndpoint){$('jGo').disabled=true;out.innerHTML='<div class="msg">Sending your listing…</div>';
+    try{const r=await fetch(CONFIG.formEndpoint,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({_subject:'Operator listing: '+v('jOp'),operator:v('jOp'),permit:v('jAop'),name:v('jName'),phone:v('jPhone'),email:v('jMail'),message:text,partners_json:json})});sent=r.ok}catch{}
+    $('jGo').disabled=false}
+  out.innerHTML=sent?`<div class="msg">Listing received. We'll verify your permit and switch your aircraft to confirmed rates within one working day. To reach us faster:<br>${btns}</div>`
+    :`<div class="msg">Your listing is ready. Send it to YaanBook and we'll verify your permit and switch your aircraft to confirmed rates within one working day.<br>${btns}</div>`};
 </script>
 </body>
 </html>
