@@ -13,6 +13,13 @@ const CONFIG = {
   sameAirportKm: 40,                 // aircraft based this close to the pickup need no positioning leg
 };
 
+// Currencies shown in the selector. Live rates come from open.er-api.com; these are used if that is unreachable.
+const CURRENCIES = {
+  ratesUrl: 'https://open.er-api.com/v6/latest/INR',
+  list: { INR: 'Indian rupee', USD: 'US dollar', EUR: 'Euro', GBP: 'British pound', AED: 'UAE dirham', SGD: 'Singapore dollar', SAR: 'Saudi riyal', JPY: 'Japanese yen', AUD: 'Australian dollar', CAD: 'Canadian dollar' },
+  fallback: { INR: 1, USD: 0.0113, EUR: 0.0097, GBP: 0.0084, AED: 0.0415, SGD: 0.0146, SAR: 0.0424, JPY: 1.68, AUD: 0.0171, CAD: 0.0156 },
+};
+
 // [code, name, city, lat, lon, kind]  kind: A = airport, H = helipad (helicopters only)
 const PLACES = [
   ['DEL','Indira Gandhi Intl','Delhi',28.566,77.103,'A'],

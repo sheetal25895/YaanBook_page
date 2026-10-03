@@ -31,9 +31,10 @@
       <span><span class="word">Yaan<b>Book</b></span><small>Charter marketplace</small></span>
     </a>
     <nav aria-label="Main">
-      <a href="#search">Search</a><a href="#deals">Empty legs</a><a href="#how">How pricing works</a><a href="#operators">Operators</a><a href="join.html">List your aircraft</a>
+      <a href="#search">Search</a><a href="#live">Live status</a><a href="#deals">Empty legs</a><a href="#how">How pricing works</a><a href="#operators">Operators</a><a href="join.html">List your aircraft</a>
     </nav>
-    <a class="btn" href="#search">Find an aircraft</a>
+    <select class="cur" id="cur" aria-label="Currency" title="Show prices in"></select>
+    <a class="btn topcta" href="#search">Find an aircraft</a>
   </div>
 </header>
 
@@ -94,6 +95,24 @@
       <div id="rlist" class="rlist"></div>
       <button class="btn ghost more" id="rmore" hidden>Show more aircraft</button>
     </div>
+  </div>
+</section>
+
+<section class="block wrap" id="live">
+  <div class="head"><div><div class="eyebrow">Live status</div><h2>Where the charter fleet is right now</h2>
+  <p id="lsrc">Live transponder (ADS-B) positions for every aircraft on YaanBook, refreshed about every 10 minutes.</p></div></div>
+  <div class="lstats" id="lstats" aria-live="polite"></div>
+  <div class="lbar" role="group" aria-label="Filter live status">
+    <button class="chip" data-l="air" aria-pressed="false">Airborne now</button>
+    <button class="chip" data-l="now" aria-pressed="true">Transmitting now</button>
+    <button class="chip" data-l="recent" aria-pressed="false">Seen in last 14 days</button>
+    <button class="chip" data-l="all" aria-pressed="false">All aircraft</button>
+    <input type="search" id="lq" placeholder="Search registration, model or operator" aria-label="Search aircraft">
+  </div>
+  <div class="lgrid">
+    <div class="card mapcard"><div id="lmap" role="region" aria-label="Map of live aircraft positions"></div>
+      <div class="legend" aria-hidden="true"><span><i class="sdot air"></i>Airborne</span><span><i class="sdot gnd"></i>On the ground</span><span><i class="sdot old"></i>Last known position</span></div></div>
+    <div class="card llist" id="llist" aria-label="Aircraft status list"></div>
   </div>
 </section>
 
@@ -162,7 +181,7 @@
 <footer>
   <div class="wrap">
     <a class="brand" href="./" aria-label="YaanBook home"><svg width="36" height="36" aria-hidden="true"><use href="#logo"/></svg><span class="word">Yaan<b>Book</b></span></a>
-    <p>YaanBook is a charter broker, not an aircraft operator. Aircraft and operators come from the DGCA list of Non-Scheduled Operators. Bases are taken from each operator's registered city unless the operator has confirmed otherwise. Fares are estimates until the operator confirms in writing. Contact: <a href="mailto:yaanbook@gmail.com">yaanbook@gmail.com</a> · <a href="join.html">List your aircraft</a></p>
+    <p>YaanBook is a charter broker, not an aircraft operator. Aircraft and operators come from the DGCA list of Non-Scheduled Operators. Bases are taken from each operator's registered city unless the operator has confirmed otherwise. Fares are estimates until the operator confirms in writing. Prices in other currencies are converted from rupees at the day's rate; you pay in rupees. Live positions: <a href="https://adsb.lol" target="_blank" rel="noopener">adsb.lol</a> (ODbL), shown only where an aircraft broadcasts ADS-B and a receiver is in range. Contact: <a href="mailto:yaanbook@gmail.com">yaanbook@gmail.com</a> · <a href="join.html">List your aircraft</a></p>
   </div>
 </footer>
 

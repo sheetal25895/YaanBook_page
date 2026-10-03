@@ -1,8 +1,19 @@
 // YaanBook page logic: search form, results, map, booking, empty legs and the operator directory.
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const inr = n => '₹' + Math.round(n).toLocaleString('en-IN');
-const lakh = n => n >= 1e7 ? '₹' + (+(n / 1e7).toFixed(2)) + ' Cr' : n >= 1e5 ? '₹' + (+(n / 1e5).toFixed(1)) + 'L' : inr(n);
+// Money: amounts are stored in rupees and shown in the visitor's chosen currency.
+let CUR = 'INR', RATES = { ...CURRENCIES.fallback };
+try { const c = new URLSearchParams(location.search).get('cur') || localStorage.getItem('yb-cur'); if (c && CURRENCIES.list[c.toUpperCase()]) CUR = c.toUpperCase(); } catch { }
+const conv = n => n * (RATES[CUR] || CURRENCIES.fallback[CUR] || 1);
+const fmtCache = {};
+const nf = (cur, opts) => fmtCache[cur + JSON.stringify(opts)] ||= new Intl.NumberFormat(cur === 'INR' ? 'en-IN' : 'en-US', { style: 'currency', currency: cur, maximumFractionDigits: 0, ...opts });
+const inrRaw = n => nf('INR').format(Math.round(n));
+const inr = n => nf(CUR).format(Math.round(conv(n)));
+const lakh = n => {
+  if (CUR !== 'INR') return nf(CUR, { notation: 'compact', maximumFractionDigits: 1 }).format(conv(n));
+  return n >= 1e7 ? '₹' + (+(n / 1e7).toFixed(2)) + ' Cr' : n >= 1e5 ? '₹' + (+(n / 1e5).toFixed(1)) + ' L' : inr(n);
+};
+const inrMsg = n => inrRaw(n) + (CUR === 'INR' ? '' : ` (about ${inr(n)})`);
 const hrs = h => { const m = Math.round(h * 60); return (m >= 60 ? Math.floor(m / 60) + 'h ' : '') + (m % 60 ? m % 60 + 'm' : '').trim() || '0m'; };
 const kmf = d => Math.round(d).toLocaleString('en-IN') + ' km';
 const place = c => AIRPORTS[c] ? `${AIRPORTS[c].city} (${c})` : c;
@@ -57,6 +68,7 @@ $('sf').onsubmit = e => {
 function runSearch(scroll) {
   if (!FLEET.length) return;
   results = search(FLEET, trip).filter(r => trip.type === 'any' || (trip.type === 'jet' ? groupOf(r.ac.cat) === 'jet' : r.ac.cat === trip.type));
+  results.forEach(r => r.liveAir = isAir(r.ac.live));
   filt.cats = new Set(); filt.max = Infinity; filt.near = filt.ver = false; shown = 15; selKey = null;
   $('results').hidden = false;
   drawFilters(); drawResults();
@@ -94,7 +106,8 @@ $('rmore').onclick = () => { shown += 20; drawResults(); };
 
 function posLine(r) {
   const { ac, q } = r, at = ac.at || ac.base, t = trip;
-  const where = `${ac.at ? 'Now at' : 'Based at'} ${esc(city(at))}${ac.at || ac.baseConfirmed ? '' : ' <span class="hint" title="Taken from the operator\'s registered city on the DGCA list">(registered city)</span>'}`;
+  const where = ac.atLive ? `Seen at ${esc(city(at))} ${ago(Date.now() - ac.atLive)} <span class="hint">(live ADS-B)</span>`
+    : `${ac.at ? 'Now at' : 'Based at'} ${esc(city(at))}${ac.at || ac.baseConfirmed ? '' : ' <span class="hint" title="Taken from the operator\'s registered city on the DGCA list">(registered city)</span>'}`;
   if (q.posKm === 0) return `<div class="pos"><span class="dot"></span><span>${where} · <b>at your pickup, no positioning flight</b></span></div>`;
   const endsHome = AIRPORTS[t.ret ? t.from : t.to] && km(AIRPORTS[t.ret ? t.from : t.to], AIRPORTS[ac.base]) < CONFIG.sameAirportKm;
   return `<div class="pos far"><span class="dot"></span><span>${where} · flies ${kmf(q.posKm)} empty to reach you${endsHome ? ', finishes at home base' : ''} · ${hrs(q.ferry)} empty flying in total</span></div>`;
@@ -136,7 +149,7 @@ function drawResults() {
   $('rlist').innerHTML = l.slice(0, shown).map(r => {
     const { ac, q } = r, best = r === cheapest;
     return `<article class="card res ${r.key === selKey ? 'on' : ''}" data-k="${esc(r.key)}">
-      <div><div class="nm">${icon(ac.cat)}${esc(ac.model)}${best ? ' <span class="tag best">Lowest fare</span>' : ''}${ac.verified ? ' <span class="tag ok">Verified rate</span>' : ' <span class="tag guess">Estimated rate</span>'}</div>
+      <div><div class="nm">${icon(ac.cat)}${esc(ac.model)}${best ? ' <span class="tag best">Lowest fare</span>' : ''}${ac.verified ? ' <span class="tag ok">Verified rate</span>' : ' <span class="tag guess">Estimated rate</span>'}${r.liveAir ? ' <span class="tag live">Airborne now</span>' : ''}</div>
       <div class="op">${esc(ac.op)} · ${CATS[ac.cat].label}${r.count > 1 ? ` · ${r.count} available` : ''}</div></div>
       <div class="price"><b>${inr(q.total)}</b><small>${inr(q.perSeat)} per passenger · incl. GST</small><button class="btn small" data-book="${esc(r.key)}">Request</button></div>
       <div class="facts"><span><b>${hrs(q.blockH)}</b> flight</span><span><b>${ac.seats}</b> seats</span><span><b>${inr(ac.rate)}</b>/hr</span><span><b>${hrs(q.flown)}</b> billed flying</span></div>
@@ -171,11 +184,11 @@ function drawMap() {
   layer.clearLayers();
   const ll = c => [AIRPORTS[c].lat, AIRPORTS[c].lon], bases = {};
   visible().forEach(r => { const b = r.ac.at || r.ac.base; bases[b] = (bases[b] || 0) + r.count; });
-  for (const b in bases) L.circleMarker(ll(b), { radius: 5 + Math.min(12, Math.sqrt(bases[b]) * 2), color: '#5FC3E4', weight: 1, fillOpacity: .25 })
+  for (const b in bases) L.circleMarker(ll(b), { radius: 5 + Math.min(12, Math.sqrt(bases[b]) * 2), color: '#3B82F6', weight: 1, fillOpacity: .3 })
     .bindTooltip(`${esc(city(b))}: ${bases[b]} aircraft`).addTo(layer);
   const sel = results.find(r => r.key === selKey), pts = [ll(trip.from), ll(trip.to)];
   if (sel) sel.q.legs.forEach(l => { pts.push(ll(l.from));
-    L.polyline([ll(l.from), ll(l.to)], l.live ? { color: '#C9A45C', weight: 3 } : { color: '#9AA6B8', weight: 2, dashArray: '5 8' }).addTo(layer); });
+    L.polyline([ll(l.from), ll(l.to)], l.live ? { color: '#D4AF37', weight: 3 } : { color: '#FF8A8A', weight: 2, dashArray: '5 8' }).addTo(layer); });
   [[trip.from, 'A'], [trip.to, 'B']].forEach(([c, t]) => L.marker(ll(c), { icon: L.divIcon({ className: '', iconSize: [30, 30], iconAnchor: [15, 15], html: `<div class="pin">${t}</div>` }) })
     .bindTooltip(esc(place(c)), { direction: 'top', offset: [0, -14] }).addTo(layer));
   map.fitBounds(L.latLngBounds(pts).pad(.15), { maxZoom: 8 });
@@ -230,9 +243,9 @@ function openBooking(r) {
     <button class="btn go">Send request</button><div class="out" aria-live="polite"></div>`;
   wireSend(f, (name, phone) => {
     const vip = $('bVip').value, notes = $('bNotes').value.trim();
-    const text = `Booking request ${ref}\n${ac.model} (${ac.reg || 'any available'}), ${ac.op}\n${place(t.from)} → ${place(t.to)}${t.ret ? ' and back' : ''}\nDate: ${t.date}${t.ret ? ', return ' + t.ret : ''}\nPassengers: ${t.pax}\nEstimate: ${inr(q.total)} incl. GST (${q.billable.toFixed(1)} hr at ${inr(ac.rate)}/hr)\nService: ${vip}\nClient: ${name}, ${phone}\nNotes: ${notes || 'none'}`;
+    const text = `Booking request ${ref}\n${ac.model} (${ac.reg || 'any available'}), ${ac.op}\n${place(t.from)} → ${place(t.to)}${t.ret ? ' and back' : ''}\nDate: ${t.date}${t.ret ? ', return ' + t.ret : ''}\nPassengers: ${t.pax}\nEstimate: ${inrMsg(q.total)} incl. GST (${q.billable.toFixed(1)} hr at ${inrMsg(ac.rate)}/hr)\nService: ${vip}\nClient: ${name}, ${phone}\nNotes: ${notes || 'none'}`;
     return { subject: `Booking request ${ref}: ${ac.model}`, text,
-      payload: { ref, aircraft: `${ac.model} · ${ac.op}${ac.reg ? ' · ' + ac.reg : ''}`, from: place(t.from), to: place(t.to), hours: +q.billable.toFixed(1), estimate: inr(q.total),
+      payload: { ref, aircraft: `${ac.model} · ${ac.op}${ac.reg ? ' · ' + ac.reg : ''}`, from: place(t.from), to: place(t.to), hours: +q.billable.toFixed(1), estimate: inrMsg(q.total),
         name, phone, date: t.date, pax: t.pax, vip, notes: [t.ret ? 'Return ' + t.ret : '', notes].filter(Boolean).join(' · ') } };
   });
   $('bk').showModal();
@@ -245,8 +258,8 @@ function openDeal(id) {
     ${contactFields()}<label for="bPax">Passengers</label><input id="bPax" type="number" min="1" max="${d.seats}" value="${Math.min(d.seats, trip?.pax || 2)}">
     <button class="btn go">Request this empty leg</button><div class="out" aria-live="polite"></div>`;
   wireSend(f, (name, phone) => {
-    const pax = +$('bPax').value || 1, text = `Empty-leg request ${ref}\n${d.model}: ${place(d.from)} → ${place(d.to)} on ${d.date} ${d.time || ''}\nPrice: ${inr(d.price)} + GST\nPassengers: ${pax}\nClient: ${name}, ${phone}`;
-    return { subject: `Empty-leg request ${ref}`, text, payload: { ref, aircraft: `Empty leg ${d.id}: ${d.model}`, from: place(d.from), to: place(d.to), hours: 0, estimate: inr(d.price), name, phone, date: d.date, pax, vip: 'Standard', notes: 'Empty leg' } };
+    const pax = +$('bPax').value || 1, text = `Empty-leg request ${ref}\n${d.model}: ${place(d.from)} → ${place(d.to)} on ${d.date} ${d.time || ''}\nPrice: ${inrMsg(d.price)} + GST\nPassengers: ${pax}\nClient: ${name}, ${phone}`;
+    return { subject: `Empty-leg request ${ref}`, text, payload: { ref, aircraft: `Empty leg ${d.id}: ${d.model}`, from: place(d.from), to: place(d.to), hours: 0, estimate: inrMsg(d.price), name, phone, date: d.date, pax, vip: 'Standard', notes: 'Empty leg' } };
   });
   $('bk').showModal();
 }
@@ -256,7 +269,7 @@ function drawDeals() {
   const l = (PARTNERS.emptyLegs || []).filter(d => d.date >= isoDay(today) && AIRPORTS[d.from] && AIRPORTS[d.to]).sort((a, b) => a.date.localeCompare(b.date));
   $('dgrid').innerHTML = l.map(d => `<div class="card deal"><div class="eyebrow">${fmtDate(d.date)} · ${esc(d.time || '')}${d.sample ? ' · example' : ''}</div>
     <div class="rt">${esc(city(d.from))} → ${esc(city(d.to))}</div><div class="meta">${esc(d.model)} · ${d.seats} seats · ${kmf(km(AIRPORTS[d.from], AIRPORTS[d.to]))}</div>
-    <div class="pr"><b>${inr(d.price)}</b>${d.was ? `<s>${inr(d.was)}</s><span class="tag ok">${Math.round((1 - d.price / d.was) * 100)}% off</span>` : ''}</div>
+    <div class="pr"><b>${inr(d.price)}</b>${d.was ? `<s>${inr(d.was)}</s><span class="tag off">${Math.round((1 - d.price / d.was) * 100)}% off</span>` : ''}</div>
     <div class="meta">Whole aircraft, plus GST</div><button class="btn small" data-deal="${esc(d.id)}">Request</button></div>`).join('')
     || '<p class="hint">No empty legs listed right now. Set an alert and we will message you when one comes up.</p>';
   $('dgrid').querySelectorAll('[data-deal]').forEach(b => b.onclick = () => openDeal(b.dataset.deal));
@@ -318,11 +331,105 @@ $('stgo').onclick = async () => {
   } catch { say('Status checks are not available right now. Message us on WhatsApp instead.', 1); }
 };
 
+/* ---------- live flight status ---------- */
+let LIVE = null, lFilter = 'now', lmap = null, lLayer = null, lMarks = {};
+const LIVE_FRESH = 20 * 6e4, AT_MAX = 72 * 36e5;
+const ago = ms => ms < 6e4 ? 'just now' : ms < 36e5 ? Math.round(ms / 6e4) + ' min ago' : ms < 864e5 ? Math.round(ms / 36e5) + ' h ago' : Math.round(ms / 864e5) + ' d ago';
+const isFresh = p => !!p && Date.now() - p.seen < LIVE_FRESH;
+const isAir = p => isFresh(p) && !p.gnd;
+// An aircraft last seen parked at an airport (and not seen flying since) is treated as being there for pricing.
+function applyLive(fleet, live) {
+  const a = live && live.aircraft; if (!a) return;
+  for (const ac of fleet) {
+    const p = a[ac.reg]; if (!p) continue;
+    ac.live = p;
+    const lg = p.lastGround;
+    if (lg && AIRPORTS[lg.code] && Date.now() - lg.ts < AT_MAX && p.seen - lg.ts < 30 * 6e4 && !isAir(p)) { ac.at = lg.code; ac.atLive = lg.ts; }
+  }
+}
+function liveStatus(p) {
+  if (!p) return { k: 'none', txt: 'No signal in the last 14 days' };
+  const fresh = isFresh(p), where = p.nearKm <= 15 ? `at ${city(p.near)}` : `${kmf(p.nearKm)} from ${city(p.near)}`;
+  if (p.gnd) return { k: fresh ? 'gnd' : 'old', txt: `${fresh ? 'On the ground' : 'Last seen on the ground'} ${where}` };
+  return { k: fresh ? 'air' : 'old', txt: `${fresh ? 'Airborne' : 'Last seen airborne'} · ${(Math.round(p.alt / 100) * 100).toLocaleString('en-IN')} ft · ${p.gs} kt · ${where}` };
+}
+const lRank = ac => { const s = liveStatus(ac.live).k; return { air: 0, gnd: 1, old: 2, none: 3 }[s]; };
+function lVisible() {
+  const q = $('lq').value.trim().toLowerCase();
+  return FLEET.filter(ac => {
+    const p = ac.live;
+    if (lFilter === 'air' && !isAir(p)) return false;
+    if (lFilter === 'now' && !isFresh(p)) return false;
+    if (lFilter === 'recent' && !p) return false;
+    return !q || `${ac.reg} ${ac.model} ${ac.dgcaModel} ${ac.op}`.toLowerCase().includes(q);
+  }).sort((a, b) => lRank(a) - lRank(b) || (b.live?.seen || 0) - (a.live?.seen || 0) || a.op.localeCompare(b.op));
+}
+function drawLive() {
+  const withPos = FLEET.filter(a => a.live), air = withPos.filter(a => isAir(a.live)).length, gnd = withPos.filter(a => isFresh(a.live) && a.live.gnd).length;
+  $('lstats').innerHTML = `<div class="air"><b>${air}</b><span>Airborne now</span></div><div class="gnd"><b>${gnd}</b><span>On the ground, transmitting</span></div>
+    <div class="rec"><b>${withPos.length}</b><span>Seen in the last 14 days</span></div><div><b>${FLEET.length}</b><span>Aircraft tracked</span></div>`;
+  $('lsrc').textContent = LIVE ? `Live transponder (ADS-B) positions for all ${FLEET.length} aircraft on YaanBook, refreshed about every 10 minutes. Last update ${ago(Date.now() - LIVE.updated)}. Parked aircraft usually switch their transponders off, so most show their last known position.`
+    : 'Live positions are not available right now.';
+  const l = lVisible(), max = 150;
+  $('llist').innerHTML = l.slice(0, max).map(ac => {
+    const s = liveStatus(ac.live);
+    return `<button class="lrow" data-reg="${esc(ac.reg)}"><span class="rg"><span class="sdot ${s.k === 'none' ? '' : s.k}"></span>${esc(ac.reg)}</span><span>${esc(ac.model)}</span><span class="ag">${ac.live ? ago(Date.now() - ac.live.seen) : ''}</span>
+      <span class="md">${esc(ac.op)}</span><span class="st">${esc(s.txt)}${ac.live?.flight && ac.live.flight !== ac.reg.replace('-', '') ? ' · flight ' + esc(ac.live.flight) : ''}</span></button>`;
+  }).join('') + (l.length > max ? `<p class="empty">Showing ${max} of ${l.length}. Search to narrow down.</p>` : '')
+    || `<p class="empty">${lFilter === 'all' ? 'No aircraft match.' : 'No aircraft match right now. Try "Seen in last 14 days" or "All aircraft".'}</p>`;
+  $('llist').querySelectorAll('.lrow').forEach(b => b.onclick = () => { const m = lMarks[b.dataset.reg]; if (m && lmap) { lmap.setView(m.getLatLng(), 8); m.openTooltip(); } });
+  drawLiveMap();
+}
+function drawLiveMap() {
+  if (!lmap) return;
+  lLayer.clearLayers(); lMarks = {};
+  for (const ac of lVisible()) {
+    const p = ac.live; if (!p) continue;
+    const s = liveStatus(p).k, heli = ac.cat === 'heli';
+    const m = L.marker([p.lat, p.lon], { title: ac.reg, icon: L.divIcon({ className: '', iconSize: [30, 30], iconAnchor: [15, 15],
+      html: `<div class="lmk ${s}"><svg viewBox="0 0 24 24"${heli ? '' : ` style="transform:rotate(${p.trk || 0}deg)"`}><use href="#${heli ? 'heli' : 'jet'}"/></svg></div>` }) })
+      .bindTooltip(`<b>${esc(ac.reg)}</b> · ${esc(ac.model)}<br>${esc(ac.op)}<br>${esc(liveStatus(p).txt)}<br>${ago(Date.now() - p.seen)}`, { direction: 'top', offset: [0, -14] }).addTo(lLayer);
+    lMarks[ac.reg] = m;
+  }
+}
+document.querySelectorAll('.lbar .chip').forEach(c => c.onclick = () => { lFilter = c.dataset.l; document.querySelectorAll('.lbar .chip').forEach(x => x.setAttribute('aria-pressed', x === c)); drawLive(); });
+$('lq').oninput = () => drawLive();
+// Build the live map only when the section scrolls into view.
+new IntersectionObserver((e, o) => {
+  if (!e[0].isIntersecting || !window.L) return; o.disconnect();
+  lmap = L.map('lmap', { scrollWheelZoom: false }).fitBounds([[7, 68.5], [33, 92]]);
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', { maxZoom: 12, attribution: 'Tiles &copy; Esri, HERE, Garmin, &copy; OpenStreetMap · Positions: adsb.lol (ODbL)' }).addTo(lmap);
+  lmap.on('click', () => lmap.scrollWheelZoom.enable());
+  lLayer = L.layerGroup().addTo(lmap); drawLiveMap();
+}, { rootMargin: '200px' }).observe($('lmap'));
+// Refresh live data every 5 minutes while the page is open.
+setInterval(() => fetch('data/live.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).then(j => {
+  if (!j || (LIVE && j.updated === LIVE.updated)) return;
+  LIVE = j; FLEET.forEach(a => { delete a.live; }); applyLive(FLEET, j); drawLive();
+}).catch(() => { }), 5 * 6e4);
+
+/* ---------- currency ---------- */
+$('cur').innerHTML = Object.entries(CURRENCIES.list).map(([c, n]) => `<option value="${c}" title="${esc(n)}">${c}</option>`).join('');
+$('cur').value = CUR;
+function rerenderMoney() {
+  if (trip && results.length) { drawResults(); const r = $('fMax'); if (r.max) $('fMaxV').textContent = 'Up to ' + lakh(+r.value); }
+  drawDeals(); drawExample(); if ($('bk').open) $('bk').close();
+}
+$('cur').onchange = () => { CUR = $('cur').value; try { localStorage.setItem('yb-cur', CUR); } catch { } rerenderMoney(); };
+fetch(CURRENCIES.ratesUrl).then(r => r.ok ? r.json() : null).then(j => {
+  if (!j || !j.rates) return;
+  for (const c in CURRENCIES.list) if (j.rates[c]) RATES[c] = j.rates[c];
+  $('cur').title = 'Exchange rates updated ' + (j.time_last_update_utc || '').replace(/ \+0000$/, ' UTC');
+  if (CUR !== 'INR') rerenderMoney();
+}).catch(() => { });
+
 /* ---------- start ---------- */
 fetch('api/health').then(r => r.ok ? r.json() : null).then(j => { SERVER = !!(j && j.ok); $('status').hidden = !SERVER; }).catch(() => { });
-Promise.all([fetch('data/operators.json').then(r => r.json()), fetch('data/partners.json').then(r => r.ok ? r.json() : {}).catch(() => ({}))]).then(([d, p]) => {
+Promise.all([fetch('data/operators.json').then(r => r.json()), fetch('data/partners.json').then(r => r.ok ? r.json() : {}).catch(() => ({})),
+  fetch('data/live.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).catch(() => null)]).then(([d, p, live]) => {
   DGCA = d; PARTNERS = { aircraft: [], emptyLegs: [], ...p };
   FLEET = buildFleet(d, PARTNERS);
+  LIVE = live; applyLive(FLEET, live); drawLive();
   $('hAc').textContent = FLEET.length; $('hOps').textContent = new Set(FLEET.map(a => a.op)).size;
   OPS = d.operators.slice().sort((a, b) => b.aircraft.length - a.aircraft.length);
   [...new Set(OPS.map(o => o.city).filter(Boolean))].sort().forEach(c => $('opcity').add(new Option(c, c)));

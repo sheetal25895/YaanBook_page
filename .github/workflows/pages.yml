@@ -2,6 +2,8 @@ name: Deploy site to GitHub Pages
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: '*/10 * * * *'   # refresh live aircraft positions
   workflow_dispatch:
 permissions:
   contents: read
@@ -9,7 +11,7 @@ permissions:
   id-token: write
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -20,6 +22,12 @@ jobs:
       - uses: actions/checkout@v4
       - name: Use the latest DGCA operator list
         run: cp data/operators.json public/data/operators.json
+      - name: Collect live aircraft positions (adsb.lol)
+        continue-on-error: true
+        timeout-minutes: 8
+        env:
+          SITE_URL: https://sheetal25895.github.io/YaanBook_page/
+        run: python3 tools/live_positions.py
       - name: Leave out the server-only operator console
         run: rm -f public/operator.html && rm -rf public/uploads
       - uses: actions/configure-pages@v5

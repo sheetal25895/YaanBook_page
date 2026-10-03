@@ -8,3 +8,4 @@ node_modules/
 # private business documents and old copies
 docs/
 backup/
+public/data/live.json
