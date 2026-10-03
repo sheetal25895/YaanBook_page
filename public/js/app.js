@@ -166,12 +166,24 @@ function drawResults() {
 const markSel = () => $('rlist').querySelectorAll('.res').forEach(e => e.classList.toggle('on', e.dataset.k === selKey));
 
 /* ---------- map ---------- */
+// Map colours and tiles follow the light / dark theme.
+const cssVar = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const isDark = () => document.documentElement.dataset.theme === 'dark';
+function themedTiles(m, extra = '') {
+  if (m._yb) m.removeLayer(m._yb);
+  const style = isDark() ? 'Canvas/World_Dark_Gray_Base' : 'World_Street_Map';
+  m._yb = L.tileLayer(`https://server.arcgisonline.com/ArcGIS/rest/services/${style}/MapServer/tile/{z}/{y}/{x}`, { maxZoom: 12, attribution: 'Tiles &copy; Esri, HERE, Garmin, &copy; OpenStreetMap contributors' + extra }).addTo(m);
+}
+document.addEventListener('themechange', () => {
+  if (map) { themedTiles(map); drawMap(); }
+  if (lmap) themedTiles(lmap, ' · Positions: adsb.lol (ODbL)');
+});
 let map = null, layer = null;
 function showMap(on) {
   $('mapcard').hidden = !on; $('mapToggle').setAttribute('aria-pressed', on); $('mapToggle').textContent = on ? 'Hide map' : 'Show map';
   if (on && !map && window.L) {
     map = L.map('map', { scrollWheelZoom: false }).fitBounds([[8, 68.5], [31, 90]]);
-    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', { maxZoom: 12, attribution: 'Tiles &copy; Esri, HERE, Garmin, &copy; OpenStreetMap contributors' }).addTo(map);
+    themedTiles(map);
     map.on('click', () => map.scrollWheelZoom.enable());
     layer = L.layerGroup().addTo(map);
   }
@@ -184,11 +196,11 @@ function drawMap() {
   layer.clearLayers();
   const ll = c => [AIRPORTS[c].lat, AIRPORTS[c].lon], bases = {};
   visible().forEach(r => { const b = r.ac.at || r.ac.base; bases[b] = (bases[b] || 0) + r.count; });
-  for (const b in bases) L.circleMarker(ll(b), { radius: 5 + Math.min(12, Math.sqrt(bases[b]) * 2), color: '#1D4ED8', weight: 1.5, fillColor: '#2563EB', fillOpacity: .35 })
+  for (const b in bases) L.circleMarker(ll(b), { radius: 5 + Math.min(12, Math.sqrt(bases[b]) * 2), color: cssVar('--accent'), weight: 1.5, fillColor: cssVar('--accent2'), fillOpacity: .35 })
     .bindTooltip(`${esc(city(b))}: ${bases[b]} aircraft`).addTo(layer);
   const sel = results.find(r => r.key === selKey), pts = [ll(trip.from), ll(trip.to)];
   if (sel) sel.q.legs.forEach(l => { pts.push(ll(l.from));
-    L.polyline([ll(l.from), ll(l.to)], l.live ? { color: '#C9971C', weight: 4 } : { color: '#DC2626', weight: 2.5, dashArray: '6 8' }).addTo(layer); });
+    L.polyline([ll(l.from), ll(l.to)], l.live ? { color: cssVar('--gold'), weight: 4 } : { color: cssVar('--red'), weight: 2.5, dashArray: '6 8' }).addTo(layer); });
   [[trip.from, 'A'], [trip.to, 'B']].forEach(([c, t]) => L.marker(ll(c), { icon: L.divIcon({ className: '', iconSize: [30, 30], iconAnchor: [15, 15], html: `<div class="pin">${t}</div>` }) })
     .bindTooltip(esc(place(c)), { direction: 'top', offset: [0, -14] }).addTo(layer));
   map.fitBounds(L.latLngBounds(pts).pad(.15), { maxZoom: 8 });
@@ -398,7 +410,7 @@ $('lq').oninput = () => drawLive();
 new IntersectionObserver((e, o) => {
   if (!e[0].isIntersecting || !window.L) return; o.disconnect();
   lmap = L.map('lmap', { scrollWheelZoom: false }).fitBounds([[7, 68.5], [33, 92]]);
-  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', { maxZoom: 12, attribution: 'Tiles &copy; Esri, HERE, Garmin, &copy; OpenStreetMap · Positions: adsb.lol (ODbL)' }).addTo(lmap);
+  themedTiles(lmap, ' · Positions: adsb.lol (ODbL)');
   lmap.on('click', () => lmap.scrollWheelZoom.enable());
   lLayer = L.layerGroup().addTo(lmap); drawLiveMap();
 }, { rootMargin: '200px' }).observe($('lmap'));
