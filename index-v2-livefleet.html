@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>YaanBook · Private jets & helicopters</title>
+<meta name="description" content="YaanBook is a discreet private aviation broker. See where every private jet and helicopter is right now, its hourly rate, and request it in one step.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='23' fill='%230B1220' stroke='%23C9A45C' stroke-width='2'/%3E%3Cg transform='translate(24 24) rotate(40) scale(1.2) translate(-12 -12)'%3E%3Cpath fill='%23C9A45C' d='M12 2 L14 9 L22 14 L22 16 L14 13.5 L13.5 19 L16 21 L16 22 L12 21 L8 22 L8 21 L10.5 19 L10 13.5 L2 16 L2 14 L10 9 Z'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+:root{--bg:#0A101C;--bg2:#0E1626;--panel:#121C2F;--panel2:#18243B;--ink:#F3EEE3;--muted:#9AA6B8;--line:#24324B;--gold:#C9A45C;--gold2:#E4C88A;--ready:#5BC794;--fly:#E9A25B;--live:#5FC3E4;--bad:#E57B6E}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;letter-spacing:-.01em;margin:0;line-height:1.1}
+button,select,input{font:inherit;color:inherit}
+a{color:var(--gold2)}
+:focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600}
+
+/* header */
+.top{position:sticky;top:0;z-index:1000;background:rgba(10,16,28,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:24px;height:70px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.brand .word{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;letter-spacing:.01em;line-height:1}
+.brand .word b{color:var(--gold);font-weight:700}
+.brand small{display:block;font-size:9.5px;letter-spacing:.32em;color:var(--muted);text-transform:uppercase;margin-top:3px;font-family:Manrope,sans-serif}
+nav{display:flex;gap:22px;margin-left:auto}
+nav a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500}
+nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--gold);color:#14100A;border:0;border-radius:999px;padding:11px 20px;font-weight:700;font-size:14px;cursor:pointer;text-decoration:none;transition:background .2s}
+.btn:hover{background:var(--gold2)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn.ghost:hover{border-color:var(--gold)}
+.btn:disabled{opacity:.6;cursor:wait}
+
+/* hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:radial-gradient(1100px 500px at 85% -10%,rgba(201,164,92,.16),transparent 60%),radial-gradient(800px 400px at 0% 110%,rgba(95,195,228,.08),transparent 60%),var(--bg)}
+.hero .wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:end;padding-top:64px;padding-bottom:56px}
+.hero h1{font-size:clamp(44px,6.4vw,84px);font-weight:600;margin:14px 0 18px}
+.hero h1 em{font-style:italic;color:var(--gold2)}
+.hero p.lead{color:var(--muted);font-size:18px;max-width:34em;margin:0 0 28px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:18px;background:rgba(18,28,47,.6)}
+.stats div{padding:22px 18px;border-left:1px solid var(--line)}
+.stats div:first-child{border-left:0}
+.stats b{display:block;font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.stats span{font-size:13px;color:var(--muted)}
+.contrail{position:absolute;right:-40px;top:30px;width:520px;opacity:.12;pointer-events:none}
+.clients{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.clients span{font-size:12.5px;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:5px 12px}
+
+/* section heads */
+section.block{padding-top:64px}
+.head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:22px}
+.head h2{font-size:clamp(32px,4vw,46px);margin-top:8px}
+.head p{color:var(--muted);margin:6px 0 0;max-width:40em}
+
+/* fleet explorer */
+.explorer{display:grid;grid-template-columns:1.55fr 1fr;gap:18px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.chip{border:1px solid var(--line);background:transparent;border-radius:99px;padding:7px 16px;cursor:pointer;font-weight:600;font-size:14px;color:var(--muted)}
+.chip:hover{color:var(--ink)}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.toolbar select,.toolbar input{background:var(--panel);border:1px solid var(--line);border-radius:99px;padding:7px 14px;font-size:14px}
+.toolbar input{min-width:200px}
+.toolbar .sp{flex:1}
+#map{height:600px;background:var(--bg2)}
+.mapwrap{position:relative}
+.legend{position:absolute;left:12px;bottom:12px;z-index:500;background:rgba(10,16,28,.85);border:1px solid var(--line);border-radius:12px;padding:8px 12px;font-size:12.5px;display:flex;gap:14px;color:var(--muted)}
+.legend i,.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px;background:var(--ready)}
+.dot.fly,.legend i.fly{background:var(--fly)}
+.dot.live,.legend i.live{background:var(--live)}
+.mapnote{padding:40px;color:var(--muted);text-align:center}
+.list{height:600px;overflow-y:auto;display:flex;flex-direction:column}
+.row{display:grid;grid-template-columns:1fr auto;gap:4px 12px;width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--line);padding:16px 18px;cursor:pointer}
+.row:hover{background:var(--panel2)}
+.row[aria-pressed=true]{background:var(--panel2);box-shadow:inset 3px 0 0 var(--gold)}
+.row .nm{font-weight:700;font-size:15.5px}
+.row .ty{font-size:12px;color:var(--muted);letter-spacing:.04em}
+.row .st{grid-column:1/-1;font-size:13px;color:var(--muted)}
+.row .rt{text-align:right;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;grid-row:1/3;grid-column:2}
+.row .rt small{display:block;font-weight:500;font-size:11.5px;color:var(--muted)}
+.empty{padding:30px;color:var(--muted);text-align:center}
+
+/* map markers */
+.mk{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:rgba(10,16,28,.9);border:1.5px solid var(--ready);box-shadow:0 4px 14px rgba(0,0,0,.45);transition:transform .2s,background .2s}
+.mk svg{width:20px;height:20px;transition:transform .6s linear}
+.mk svg{fill:var(--ready)}
+.mk .h{font:800 14px Manrope,sans-serif;color:var(--ready)}
+.mk.fly{border-color:var(--fly)}.mk.fly svg{fill:var(--fly)}.mk.fly .h{color:var(--fly)}
+.mk.live{border-color:var(--live)}.mk.live svg{fill:var(--live)}.mk.live .h{color:var(--live)}
+.mk.on{transform:scale(1.22);background:var(--gold);border-color:var(--gold2)}
+.mk.on svg{fill:#14100A}.mk.on .h{color:#14100A}
+.leaflet-marker-icon:focus-visible .mk{outline:2px solid var(--gold2);outline-offset:3px}
+.leaflet-container{font-family:Manrope,sans-serif;background:var(--bg2)}
+.leaflet-tooltip{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:8px;box-shadow:none;font-size:12.5px}
+.leaflet-tooltip-top:before{border-top-color:var(--line)}
+.leaflet-control-attribution{background:rgba(10,16,28,.75)!important;color:var(--muted)!important}
+.leaflet-control-attribution a{color:var(--muted)!important}
+.leaflet-bar a{background:var(--panel)!important;color:var(--ink)!important;border-color:var(--line)!important}
+.city-lbl{background:transparent;border:0;box-shadow:none;color:var(--muted);font-size:11.5px;padding:0}
+.city-lbl:before{display:none}
+
+/* booking */
+.book{display:grid;grid-template-columns:1fr 1.15fr;gap:18px}
+.plane{padding:22px}
+.photo{aspect-ratio:16/9;border-radius:14px;margin-bottom:18px;background:radial-gradient(circle at 70% 30%,rgba(201,164,92,.22),transparent 60%),var(--panel2);display:grid;place-items:center;overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover}
+.plane h3{font-size:36px}
+.plane .loc{color:var(--muted);font-size:14px;margin:8px 0 18px}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.facts div{background:var(--panel2);border-radius:12px;padding:12px}
+.facts small{display:block;color:var(--muted);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase}
+.facts span{font-weight:700;font-variant-numeric:tabular-nums}
+.form{padding:22px}
+.form h3{font-size:28px;margin-bottom:4px}
+label{display:block;font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.04em;margin:14px 0 6px}
+.f select,.f input[type=text],.f input[type=date],.f input[type=tel],.f input[type=number],.stbox input{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg2);color-scheme:dark}
+.f input:focus,.f select:focus{border-color:var(--gold);outline:none}
+input[type=range]{width:100%;accent-color:var(--gold)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hint{font-size:13px;color:var(--muted);margin:6px 0 0}
+.warn{font-size:13px;color:var(--fly);margin:6px 0 0}
+.est{margin:20px 0 6px;padding:18px;border-radius:14px;background:linear-gradient(135deg,rgba(201,164,92,.16),rgba(201,164,92,.04));border:1px solid rgba(201,164,92,.35)}
+.est .l{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.est b{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:600;color:var(--gold2);font-variant-numeric:tabular-nums}
+.est .sub{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-top:4px}
+.msg{margin-top:14px;padding:14px;border-radius:12px;background:var(--panel2);border-left:3px solid var(--ready);font-size:14.5px}
+.msg.err{border-color:var(--fly)}
+.msg a{display:block;margin-top:6px;font-weight:700}
+
+/* services / ops / status */
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.pillars div{padding:24px;border:1px solid var(--line);border-radius:18px;background:var(--panel)}
+.pillars svg{width:30px;height:30px;stroke:var(--gold);fill:none;stroke-width:1.5}
+.pillars h3{font-size:24px;margin:14px 0 8px}
+.pillars p{color:var(--muted);margin:0;font-size:14.5px}
+.opgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+.opc{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px}
+.opc h3{font-size:22px}
+.opc small{color:var(--muted)}
+.opc p{margin:8px 0;font-size:14px;color:var(--muted)}
+.opc a{font-weight:700;font-size:13.5px}
+.opc .meta{font-size:13px;color:var(--muted);margin-top:4px}
+.opc ul{list-style:none;padding:0;margin:12px 0 0;font-size:13.5px}
+.opc li{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-top:1px solid var(--line)}
+.opc li span:last-child{color:var(--muted);white-space:nowrap}
+.badge{display:inline-block;font-size:11.5px;font-weight:700;border-radius:99px;padding:2px 9px;margin-top:10px;border:1px solid currentColor}
+.badge.ok{color:var(--ready)}.badge.soon{color:var(--fly)}.badge.exp{color:var(--bad)}
+.opbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.opbar input,.opbar select{background:var(--panel);border:1px solid var(--line);border-radius:99px;padding:8px 14px;font-size:14px}
+.opbar input{flex:1;min-width:220px;max-width:420px}
+.opcount{color:var(--muted);font-size:13.5px;margin:14px 0 0}
+.more{margin:18px auto 0;display:flex}
+.stbox{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;max-width:760px}
+footer{margin-top:80px;border-top:1px solid var(--line);padding:36px 0 44px;color:var(--muted);font-size:13.5px}
+footer .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:start}
+footer p{max-width:44em;margin:0}
+
+@media(max-width:980px){
+  nav{display:none}
+  .hero .wrap,.explorer,.book{grid-template-columns:1fr}
+  #map{height:420px}.list{height:auto;max-height:520px}
+  .pillars{grid-template-columns:1fr 1fr}.opgrid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:620px){
+  .wrap{padding:0 16px}
+  .top .btn{padding:9px 14px;font-size:13px}
+  .brand small{display:none}
+  .hero .wrap{padding-top:40px}
+  .stats b{font-size:30px}.stats div{padding:16px 12px}
+  #map{height:340px}
+  .facts{grid-template-columns:1fr 1fr}
+  .pillars,.opgrid,.stbox,.two{grid-template-columns:1fr}
+  .toolbar input{min-width:0;flex:1 1 100%}
+  .legend{display:none}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="jet" viewBox="0 0 24 24"><path d="M12 2 L14 9 L22 14 L22 16 L14 13.5 L13.5 19 L16 21 L16 22 L12 21 L8 22 L8 21 L10.5 19 L10 13.5 L2 16 L2 14 L10 9 Z"/></symbol>
+  <symbol id="heli" viewBox="0 0 24 24"><rect x="2" y="3" width="17" height="1.6" rx=".8"/><rect x="9.7" y="4" width="1.6" height="3"/><ellipse cx="9" cy="11" rx="6" ry="4"/><path d="M14 9.4h6.2l1.3-2.6h1.5l-.6 5H14z"/><rect x="3.5" y="17.6" width="11" height="1.4" rx=".7"/><rect x="5.8" y="14.4" width="1.3" height="3.6"/><rect x="10.8" y="14.4" width="1.3" height="3.6"/></symbol>
+  <symbol id="logo" viewBox="0 0 48 48">
+    <circle cx="24" cy="24" r="22.5" fill="#0B1220" stroke="#C9A45C" stroke-width="1.5"/>
+    <circle cx="24" cy="24" r="18.5" fill="none" stroke="#C9A45C" stroke-opacity=".35" stroke-width=".8"/>
+    <path d="M9 37 Q15 31 20 29" fill="none" stroke="#E4C88A" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="1.5 3"/>
+    <g transform="translate(25.5 22.5) rotate(40) scale(1.15) translate(-12 -12)"><path fill="#C9A45C" d="M12 2 L14 9 L22 14 L22 16 L14 13.5 L13.5 19 L16 21 L16 22 L12 21 L8 22 L8 21 L10.5 19 L10 13.5 L2 16 L2 14 L10 9 Z"/></g>
+  </symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="YaanBook home">
+      <svg width="44" height="44" role="img" aria-label="YaanBook jet emblem"><use href="#logo"/></svg>
+      <span><span class="word">Yaan<b>Book</b></span><small>Private aviation</small></span>
+    </a>
+    <nav aria-label="Main">
+      <a href="#fleet">Live fleet</a><a href="#book">Book</a><a href="#services">Services</a><a href="#operators">Operators</a><a href="#status">My request</a>
+    </nav>
+    <a class="btn" href="#book">Request a charter</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <svg class="contrail" viewBox="0 0 520 300" aria-hidden="true"><path d="M0 290 C160 250 300 170 430 60" stroke="#E4C88A" stroke-width="2" fill="none" stroke-dasharray="2 10" stroke-linecap="round"/><g transform="translate(450 44) rotate(50) scale(3.2) translate(-12 -12)"><use href="#jet" fill="#E4C88A"/></g></svg>
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Private jets · Helicopters · India</div>
+      <h1>Your aircraft,<br><em>already waiting.</em></h1>
+      <p class="lead">See where every private jet and helicopter is standing right now and what it costs per flight hour. Then request it in one step. A personal concierge confirms every flight, with complete discretion.</p>
+      <div class="ctas"><a class="btn" href="#fleet">View the live fleet</a><a class="btn ghost" href="#book">Get an estimate</a></div>
+      <div class="clients" aria-label="Who flies with us"><span>Heads of state &amp; delegations</span><span>Chief executives</span><span>Film &amp; sport stars</span><span>Family offices</span></div>
+    </div>
+    <div class="stats" aria-live="polite">
+      <div><b id="sAll">8</b><span>Aircraft on the platform</span></div>
+      <div><b id="sReady">0</b><span>Ready to fly now</span></div>
+      <div><b id="sFrom">—</b><span>Starting rate per hour</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block wrap" id="fleet">
+  <div class="head">
+    <div><div class="eyebrow">Live fleet</div><h2>Where every aircraft stands now</h2>
+    <p>Select an aircraft on the map or in the list to see its location, specifications and hourly rate.</p></div>
+  </div>
+  <div class="toolbar" role="group" aria-label="Filter aircraft">
+    <button class="chip" data-f="all" aria-pressed="true">All aircraft</button>
+    <button class="chip" data-f="Jet" aria-pressed="false">Jets</button>
+    <button class="chip" data-f="Helicopter" aria-pressed="false">Helicopters</button>
+    <span class="sp"></span>
+    <input type="search" id="q" placeholder="Search aircraft or city" aria-label="Search aircraft or city">
+    <select id="sort" aria-label="Sort aircraft"><option value="ready">Ready first</option><option value="low">Lowest rate</option><option value="high">Highest rate</option><option value="seats">Most seats</option></select>
+  </div>
+  <div class="explorer">
+    <div class="card mapwrap">
+      <div id="map" role="region" aria-label="Map of aircraft positions across India"></div>
+      <div class="legend" aria-hidden="true"><span><i></i>Ready on ground</span><span><i class="fly"></i>In flight</span><span><i class="live"></i>Live transponder</span></div>
+    </div>
+    <div class="card list" id="list" aria-label="Aircraft list"></div>
+  </div>
+</section>
+
+<section class="block wrap" id="book">
+  <div class="head"><div><div class="eyebrow">Book</div><h2>Plan your flight</h2>
+  <p>We estimate the flight time from your route and the aircraft's cruise speed. You can adjust it before sending.</p></div></div>
+  <div class="book">
+    <div class="card plane" id="plane"></div>
+    <div class="card form f" id="form"></div>
+  </div>
+</section>
+
+<section class="block wrap" id="services">
+  <div class="head"><div><div class="eyebrow">The YaanBook standard</div><h2>Built for people who can't wait in line</h2></div></div>
+  <div class="pillars">
+    <div><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/></svg><h3>Discreet by default</h3><p>No public manifests. Passenger names stay with your concierge and the operator.</p></div>
+    <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3>Wheels-up fast</h3><p>A concierge calls you back within 30 minutes to confirm the aircraft and crew.</p></div>
+    <div><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg><h3>Clear hourly pricing</h3><p>Every aircraft shows its per-hour rate up front, so you can compare before you ask.</p></div>
+    <div><svg viewBox="0 0 24 24"><path d="M3 20h18M6 20V9l6-5 6 5v11M10 20v-5h4v5"/></svg><h3>Protocol &amp; security</h3><p>Private lounges, discreet ground handling and security coordination for state and VIP travel.</p></div>
+  </div>
+</section>
+
+<section class="block wrap" id="operators">
+  <div class="head"><div><div class="eyebrow">DGCA register</div><h2>Charter operators in India</h2>
+  <p id="opsrc">Every holder of a DGCA Non-Scheduled Operator Permit, from the official DGCA list. These companies are not YaanBook partners.</p></div></div>
+  <div class="opbar" role="group" aria-label="Filter operators">
+    <button class="chip" data-k="all" aria-pressed="true">All</button>
+    <button class="chip" data-k="FW" aria-pressed="false">Planes &amp; jets</button>
+    <button class="chip" data-k="RW" aria-pressed="false">Helicopters</button>
+    <input type="search" id="opq" placeholder="Search operator or aircraft model" aria-label="Search operators">
+    <select id="opcity" aria-label="Filter by city"><option value="">All cities</option></select>
+  </div>
+  <p class="opcount" id="opcount" aria-live="polite"></p>
+  <div class="opgrid" id="opgrid"></div>
+  <button class="btn ghost more" id="opmore" hidden>Show more operators</button>
+</section>
+
+<section class="block wrap" id="status">
+  <div class="head"><div><div class="eyebrow">My request</div><h2>Check your request</h2>
+  <p>Enter the reference you received and the phone number you booked with.</p></div></div>
+  <div class="stbox"><input type="text" id="sr" placeholder="Reference, e.g. YB-XXXX" aria-label="Request reference"><input type="tel" id="sp" placeholder="Phone number" aria-label="Phone number"><button class="btn" id="stgo">Check status</button></div>
+  <div id="stmsg" aria-live="polite" style="max-width:760px"></div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="YaanBook home"><svg width="36" height="36" aria-hidden="true"><use href="#logo"/></svg><span class="word">Yaan<b>Book</b></span></a>
+    <p>YaanBook is a charter broker, not an aircraft operator. Positions are simulated unless marked live. Live positions: <a href="https://adsb.lol" target="_blank" rel="noopener">adsb.lol</a> (ODbL). Estimates exclude 18% GST, landing, parking, positioning and crew charges, which your quote confirms. Contact: <a href="mailto:yaanbook@gmail.com">yaanbook@gmail.com</a> · Operators: <a href="/operator.html">sign in</a>.</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+// Airports as [lat, lon]
+const CITIES={Mumbai:[19.09,72.87],Delhi:[28.56,77.10],Bengaluru:[13.20,77.71],Hyderabad:[17.24,78.43],Chennai:[12.99,80.17],Kolkata:[22.65,88.45],Jaipur:[26.82,75.81],Goa:[15.38,73.83]};
+// Specs are local; rate, position and photo come from the server (/api/fleet) when it is running.
+const FLEET=[
+{id:1,name:'Gulfstream G650ER',type:'Jet',cls:'Ultra long range',seats:16,rate:850000,at:'Mumbai',to:null,p:0,range:13900,speed:900},
+{id:2,name:'Bombardier Global 6000',type:'Jet',cls:'Ultra long range',seats:14,rate:720000,at:'Delhi',to:'Kolkata',p:.35,range:11100,speed:870},
+{id:3,name:'Dassault Falcon 2000',type:'Jet',cls:'Super midsize',seats:10,rate:480000,at:'Bengaluru',to:null,p:0,range:5900,speed:850},
+{id:4,name:'Embraer Phenom 300',type:'Jet',cls:'Light jet',seats:8,rate:260000,at:'Hyderabad',to:'Chennai',p:.6,range:3650,speed:780},
+{id:5,name:'Citation XLS+',type:'Jet',cls:'Midsize',seats:8,rate:290000,at:'Jaipur',to:null,p:0,range:3700,speed:790},
+{id:6,name:'AgustaWestland AW139',type:'Helicopter',cls:'Twin-engine VIP',seats:12,rate:240000,at:'Delhi',to:null,p:0,range:1000,speed:290},
+{id:7,name:'Airbus H145',type:'Helicopter',cls:'Twin-engine',seats:8,rate:160000,at:'Mumbai',to:'Goa',p:.45,range:680,speed:245},
+{id:8,name:'Bell 407',type:'Helicopter',cls:'Single-engine',seats:6,rate:110000,at:'Bengaluru',to:null,p:0,range:600,speed:230}];
+
+let sel=1,filter='all',sort='ready',query='';
+const $=id=>document.getElementById(id);
+const inr=n=>'₹'+Math.round(n).toLocaleString('en-IN');
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const km=([a,b],[c,d])=>{const r=Math.PI/180,x=Math.sin((c-a)*r/2)**2+Math.cos(a*r)*Math.cos(c*r)*Math.sin((d-b)*r/2)**2;return 12742*Math.asin(Math.sqrt(x))};
+const bearing=([a,b],[c,d])=>Math.atan2((d-b)*Math.cos((a+c)/2*Math.PI/180),c-a)*180/Math.PI;
+const state=a=>a.live?'live':a.to?'fly':'ready';
+const pos=a=>{
+  if(a.live)return{ll:[a.live.lat,a.live.lon],h:a.live.hdg};
+  const A=CITIES[a.at];if(!A)return null;
+  if(!a.to||!CITIES[a.to]){const n=FLEET.filter(x=>!x.live&&!x.to&&x.at===a.at);const i=n.indexOf(a);return{ll:[A[0]-i*.55,A[1]+i*.55],h:0}}
+  const B=CITIES[a.to];return{ll:[A[0]+(B[0]-A[0])*a.p,A[1]+(B[1]-A[1])*a.p],h:bearing(A,B)}};
+const where=a=>a.live
+  ?(a.live.gnd?'On the ground':`Airborne at ${(Math.round(a.live.alt*3.281/100)*100).toLocaleString('en-IN')} ft, ${Math.round(a.live.spd*1.944)} kt`)+` · live ADS-B, ${Math.max(0,Math.round((Date.now()-a.live.ts)/60000))} min ago`
+  :a.to?`In flight from ${esc(a.at)} to ${esc(a.to)} · ${Math.round(a.p*100)}% complete`
+  :`Ready on the ground at ${esc(a.at)}`;
+const short=a=>a.live?(a.live.gnd?'Live · on the ground':'Live · airborne'):a.to?`In flight · ${esc(a.at)} → ${esc(a.to)}`:`Ready now · ${esc(a.at)}`;
+const cur=()=>FLEET.find(a=>a.id===sel);
+const vis=()=>{
+  const q=query.toLowerCase();
+  const l=FLEET.filter(a=>(filter==='all'||a.type===filter)&&(a.name+' '+a.at+' '+(a.to||'')+' '+a.cls).toLowerCase().includes(q));
+  const rank={ready:0,live:1,fly:2};
+  return l.sort(sort==='low'?(a,b)=>a.rate-b.rate:sort==='high'?(a,b)=>b.rate-a.rate:sort==='seats'?(a,b)=>b.seats-a.seats:(a,b)=>rank[state(a)]-rank[state(b)]||a.rate-b.rate)};
+
+/* ---------- map ---------- */
+let map=null;const markers={};let route=null;
+if(window.L){
+  map=L.map('map',{zoomControl:true,scrollWheelZoom:false,attributionControl:true}).fitBounds([[8,68.5],[31,90]]);
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',{maxZoom:12,attribution:'Tiles &copy; Esri, HERE, Garmin, &copy; OpenStreetMap contributors'}).addTo(map);
+  for(const n in CITIES)L.circleMarker(CITIES[n],{radius:3,color:'#9AA6B8',weight:1,fillOpacity:.8,interactive:false}).bindTooltip(n,{permanent:true,direction:'right',className:'city-lbl',offset:[6,0]}).addTo(map);
+  map.on('click',()=>map.scrollWheelZoom.enable());
+}else{$('map').innerHTML='<p class="mapnote">The map could not load. Check your connection. The aircraft list still shows every location.</p>'}
+
+function syncMap(){
+  if(!map)return;
+  const shown=new Set(vis().map(a=>a.id));
+  for(const a of FLEET){
+    const p=pos(a);let m=markers[a.id];
+    if(!p||!shown.has(a.id)){if(m)m.remove();continue}
+    if(!m){
+      m=markers[a.id]=L.marker(p.ll,{title:a.name,alt:a.name,keyboard:true,icon:L.divIcon({className:'',iconSize:[40,40],iconAnchor:[20,20],
+        html:`<div class="mk">${a.type==='Jet'?'<svg class="rot" viewBox="0 0 24 24"><use href="#jet"/></svg>':'<svg viewBox="0 0 24 24"><use href="#heli"/></svg>'}</div>`})});
+      m.bindTooltip('',{direction:'top',offset:[0,-20]});
+      m.on('click',()=>pick(a.id));
+      m.on('keypress',e=>{if(e.originalEvent.key==='Enter')pick(a.id)});
+    }
+    if(!map.hasLayer(m))m.addTo(map);
+    m.setLatLng(p.ll);
+    m.setTooltipContent(`<b>${esc(a.name)}</b><br>${short(a)} · ${inr(a.rate)}/hr`);
+    const el=m.getElement();if(el){const k=el.firstChild;k.className=`mk ${state(a)} ${a.id===sel?'on':''}`;const s=k.querySelector('svg.rot');if(s)s.style.transform=`rotate(${p.h}deg)`;m.setZIndexOffset(a.id===sel?1000:0)}
+  }
+  const a=cur();
+  if(route){route.remove();route=null}
+  if(a&&a.to&&!a.live&&CITIES[a.at]&&CITIES[a.to]&&filterOk(a))route=L.polyline([CITIES[a.at],CITIES[a.to]],{color:'#C9A45C',weight:2,dashArray:'6 8',interactive:false}).addTo(map);
+}
+const filterOk=a=>vis().some(x=>x.id===a.id);
+
+/* ---------- list ---------- */
+function drawList(){
+  const l=vis();
+  $('list').innerHTML=l.length?l.map(a=>`<button class="row" data-id="${a.id}" aria-pressed="${a.id===sel}">
+    <span><span class="nm">${esc(a.name)}</span><br><span class="ty">${a.type} · ${esc(a.cls)} · ${a.seats} seats</span></span>
+    <span class="rt">${inr(a.rate)}<small>per hour</small></span>
+    <span class="st" data-st="${a.id}"><span class="dot ${state(a)==='ready'?'':state(a)}"></span>${short(a)}</span></button>`).join('')
+    :'<p class="empty">No aircraft match your search.</p>';
+  $('list').querySelectorAll('.row').forEach(b=>b.onclick=()=>{pick(+b.dataset.id);if(matchMedia('(max-width:980px)').matches)$('book').scrollIntoView()});
+}
+function tickList(){FLEET.forEach(a=>{const e=document.querySelector(`[data-st="${a.id}"]`);if(e)e.innerHTML=`<span class="dot ${state(a)==='ready'?'':state(a)}"></span>${short(a)}`})}
+
+/* ---------- aircraft + booking ---------- */
+function drawPlane(){
+  const a=cur(),photo=/^\/uploads\/[\w.-]+$/.test(a.photo||'')?a.photo:null;
+  $('plane').innerHTML=`<div class="photo">${photo?`<img src="${photo}" alt="${esc(a.name)}">`:(a.type==='Jet'?`<svg width="120" height="120" viewBox="0 0 24 24" aria-hidden="true" style="transform:rotate(40deg)"><use href="#jet" fill="#C9A45C"/></svg>`:`<svg width="130" height="130" viewBox="0 0 24 24" aria-hidden="true"><use href="#heli" fill="#C9A45C"/></svg>`)}</div>
+    <div class="eyebrow">${a.type} · ${esc(a.cls)}</div>
+    <h3 style="margin-top:6px">${esc(a.name)}</h3>
+    <p class="loc" id="loc"><span class="dot ${state(a)==='ready'?'':state(a)}"></span>${where(a)}</p>
+    <div class="facts"><div><small>Rate</small><span>${inr(a.rate)}/hr</span></div><div><small>Seats</small><span>${a.seats}</span></div><div><small>Range</small><span>${a.range.toLocaleString('en-IN')} km</span></div><div><small>Cruise</small><span>${a.speed} km/h</span></div></div>`;
+}
+function drawForm(){
+  const a=cur(),cities=Object.keys(CITIES),home=CITIES[a.to||a.at]?(a.to||a.at):cities[0],dest=cities.find(c=>c!==home);
+  const opts=v=>cities.map(c=>`<option ${c===v?'selected':''}>${c}</option>`).join('');
+  $('form').innerHTML=`<h3>Request the ${esc(a.name)}</h3><p class="hint">No payment now. A concierge confirms availability and your final quote.</p>
+    <div class="two"><div><label for="fr">From</label><select id="fr">${opts(home)}</select></div><div><label for="tt">To</label><select id="tt">${opts(dest)}</select></div></div>
+    <p class="hint" id="rinfo"></p>
+    <label for="hrs">Flight time: <span id="hv"></span></label>
+    <input type="range" id="hrs" min="0.5" max="16" step="0.5" value="2">
+    <div class="est"><div class="l"><span>Estimated charter</span><b id="tot"></b></div><div class="sub"><span id="gst"></span><span>${inr(a.rate)} × <span id="hv2"></span></span></div></div>
+    <div class="two"><div><label for="dt">Date</label><input type="date" id="dt"></div><div><label for="px">Passengers</label><input type="number" id="px" value="2" min="1" max="${a.seats}" inputmode="numeric"></div></div>
+    <p class="warn" id="pxw" hidden></p>
+    <label for="vp">Service level</label><select id="vp"><option>Standard</option><option>VIP: private lounge and discreet ground handling</option><option>VIP: security coordination and protocol</option><option>State / diplomatic: full protocol support</option></select>
+    <div class="two"><div><label for="nm">Full name</label><input type="text" id="nm" autocomplete="name"></div><div><label for="ph">Phone / WhatsApp</label><input type="tel" id="ph" autocomplete="tel"></div></div>
+    <label for="nt">Special requests</label><input type="text" id="nt" placeholder="Catering, security detail, pets, extra luggage">
+    <div style="margin-top:18px"><button class="btn" id="go" style="width:100%;padding:15px">Request this aircraft</button></div>
+    <div id="msg" aria-live="polite"></div>`;
+  const t=new Date();t.setDate(t.getDate()+1);$('dt').min=new Date().toISOString().slice(0,10);$('dt').value=t.toISOString().slice(0,10);
+  const upd=()=>{const h=+$('hrs').value,s=h+(h===1?' hour':' hours');$('hv').textContent=s;$('hv2').textContent=s;$('tot').textContent=inr(a.rate*h);$('gst').textContent='About '+inr(a.rate*h*1.18)+' with 18% GST'};
+  const route=()=>{
+    const f=$('fr').value,to=$('tt').value,info=$('rinfo');
+    if(f===to){info.className='warn';info.textContent='Choose two different cities.';return}
+    const d=km(CITIES[f],CITIES[to]),h=Math.max(.5,Math.ceil((d/a.speed+.25)*2)/2);
+    $('hrs').value=h;upd();
+    const notes=[`${Math.round(d).toLocaleString('en-IN')} km, about ${h} ${h===1?'hour':'hours'} in the air.`];
+    let warn=false;
+    if(d>a.range*.9){notes.push(`This is beyond the ${esc(a.name)}'s comfortable range, so a fuel stop may be needed.`);warn=true}
+    const at=a.to||a.at;if(f!==at){notes.push(`The aircraft is ${a.to?'heading to':'at'} ${esc(at)}, so a positioning leg may be added to your quote.`)}
+    info.className=warn?'warn':'hint';info.textContent=notes.join(' ')};
+  $('fr').onchange=$('tt').onchange=route;$('hrs').oninput=upd;route();
+  $('px').oninput=()=>{const n=+$('px').value,w=$('pxw');w.hidden=!(n>a.seats);w.textContent=`The ${a.name} seats ${a.seats}. Pick a larger aircraft or ask us to arrange two.`};
+  $('go').onclick=send;
+}
+async function send(){
+  const a=cur(),h=+$('hrs').value,v=x=>$(x).value.trim();
+  const d={aircraft:a.name,from:v('fr'),to:v('tt'),hours:h,estimate:inr(a.rate*h),name:v('nm'),phone:v('ph'),date:v('dt'),pax:v('px'),vip:$('vp').value,notes:v('nt')};
+  const box=$('msg'),say=(t,err)=>{box.innerHTML='';const e=document.createElement('div');e.className='msg'+(err?' err':'');e.textContent=t;box.appendChild(e);return e};
+  if(!d.name||!d.phone){say('Add your name and phone number so your concierge can reach you.',1);return}
+  if(d.from===d.to){say('Choose two different cities.',1);return}
+  $('go').disabled=true;say('Sending your request…');
+  try{const r=await fetch('/api/enquiries',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)});const j=await r.json();if(!r.ok)throw new Error(j.error||'failed');
+    say(`Request ${j.ref} received. A concierge will call ${d.name} within 30 minutes to confirm the ${a.name}. Keep this reference to check your request status.`);
+  }catch(err){
+    const t=`Booking request\n${d.aircraft}\n${d.from} to ${d.to}, ${d.hours} hr (est. ${d.estimate})\nDate: ${d.date||'flexible'}, ${d.pax} passengers\nService: ${d.vip}\nClient: ${d.name}, ${d.phone}\nNotes: ${d.notes||'none'}`;
+    const e=say('We could not reach the YaanBook server. Send this request directly instead:',1);
+    [['Email YaanBook','mailto:yaanbook@gmail.com?subject='+encodeURIComponent('Booking request: '+a.name)+'&body='+encodeURIComponent(t)],['WhatsApp YaanBook','https://wa.me/917406791221?text='+encodeURIComponent(t)]]
+      .forEach(([l,u])=>{const x=document.createElement('a');x.href=u;x.target='_blank';x.rel='noopener';x.textContent=l;e.appendChild(x)})}
+  $('go').disabled=false}
+
+function stats(){
+  $('sAll').textContent=FLEET.length;
+  $('sReady').textContent=FLEET.filter(a=>state(a)==='ready'||(a.live&&a.live.gnd)).length;
+  const m=Math.min(...FLEET.map(a=>a.rate));$('sFrom').textContent=m>=1e5?'₹'+(+(m/1e5).toFixed(1))+'L':inr(m)}
+
+function pick(id){sel=id;syncMap();drawList();drawPlane();drawForm();stats()}
+
+document.querySelectorAll('.toolbar .chip').forEach(c=>c.onclick=()=>{filter=c.dataset.f;document.querySelectorAll('.toolbar .chip').forEach(x=>x.setAttribute('aria-pressed',x===c));const l=vis();if(l.length&&!l.some(a=>a.id===sel))sel=l[0].id;pick(sel)});
+$('sort').onchange=e=>{sort=e.target.value;drawList();syncMap()};
+$('q').oninput=e=>{query=e.target.value;drawList();syncMap()};
+pick(1);
+
+const loadFleet=()=>fetch('/api/fleet').then(r=>r.ok?r.json():[]).then(l=>{if(!Array.isArray(l)||!l.length)return;
+  l.forEach(o=>{const a=FLEET.find(x=>x.id===o.id);if(a)Object.assign(a,{name:o.name||a.name,rate:o.rate,at:o.at,to:o.to,p:o.p,photo:o.photo,live:o.live})});
+  const f=document.activeElement&&$('form').contains(document.activeElement);syncMap();drawList();drawPlane();if(!f)drawForm();stats()}).catch(()=>{});
+loadFleet();setInterval(loadFleet,60000);
+
+// Gentle simulated movement for aircraft without a live transponder feed
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches)setInterval(()=>{
+  FLEET.forEach(a=>{if(a.to&&!a.live){a.p+=.004;if(a.p>=1){a.at=a.to;a.to=null;a.p=0}}});
+  syncMap();tickList();stats();
+  const a=cur(),l=$('loc');if(l)l.innerHTML=`<span class="dot ${state(a)==='ready'?'':state(a)}"></span>${where(a)}`;
+},1500);
+
+/* ---------- operators & status ---------- */
+let OPS=[],opKind='all',opShown=12;
+const dmy=v=>{const[d,m,y]=(v||'').split('.').map(Number);return y?new Date(y,m-1,d):null};
+const fmtD=d=>d.toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});
+function drawOps(){
+  const q=$('opq').value.trim().toLowerCase(),city=$('opcity').value;
+  const l=OPS.filter(o=>(opKind==='all'||o.aircraft.some(a=>a.kind===opKind))&&(!city||o.city===city)&&(o.name+' '+o.aircraft.map(a=>a.model).join(' ')).toLowerCase().includes(q));
+  $('opcount').textContent=OPS.length?`${l.length} of ${OPS.length} operators`:'';
+  $('opgrid').innerHTML=l.slice(0,opShown).map(o=>{
+    const v=dmy(o.valid),days=v?(v-Date.now())/864e5:0,
+      badge=!v?'':days<0?`<span class="badge exp">Permit expired ${fmtD(v)}</span>`:days<180?`<span class="badge soon">Permit valid until ${fmtD(v)}</span>`:`<span class="badge ok">Permit valid until ${fmtD(v)}</span>`;
+    const g={};o.aircraft.forEach(a=>{const k=a.model.replace(/\s+/g,' ');g[k]=g[k]||{n:0,kind:a.kind,seats:a.seats};g[k].n++});
+    const rows=Object.entries(g).sort((a,b)=>b[1].n-a[1].n),fw=o.aircraft.filter(a=>a.kind==='FW').length,rw=o.aircraft.filter(a=>a.kind==='RW').length,
+      mix=[fw&&`${fw} plane${fw>1?'s':''}`,rw&&`${rw} helicopter${rw>1?'s':''}`,o.aircraft.length-fw-rw&&`${o.aircraft.length-fw-rw} balloon${o.aircraft.length-fw-rw>1?'s':''}`].filter(Boolean).join(', ');
+    return `<div class="opc"><h3>${esc(o.name)}</h3><div class="meta">${esc(o.city||'India')} · Permit ${esc(o.aop)} · ${mix}</div>${badge}
+      <ul>${rows.slice(0,4).map(([m,x])=>`<li><span>${x.n>1?x.n+' × ':''}${esc(m)}</span><span>${/^\d+$/.test(x.seats)?x.seats+' seats':esc(x.seats)}</span></li>`).join('')}${rows.length>4?`<li><span>+ ${rows.length-4} more model${rows.length-4>1?'s':''}</span><span></span></li>`:''}</ul></div>`}).join('')
+    ||`<p class="hint">${OPS.length?'No operators match.':'The operator list needs the YaanBook server, which is not running right now.'}</p>`;
+  $('opmore').hidden=l.length<=opShown;$('opmore').textContent=`Show all ${l.length} operators`}
+document.querySelectorAll('.opbar .chip').forEach(c=>c.onclick=()=>{opKind=c.dataset.k;document.querySelectorAll('.opbar .chip').forEach(x=>x.setAttribute('aria-pressed',x===c));opShown=12;drawOps()});
+$('opq').oninput=$('opcity').onchange=()=>{opShown=12;drawOps()};
+$('opmore').onclick=()=>{opShown=1e4;drawOps()};
+fetch('/api/operators').then(r=>r.ok?r.json():null).then(d=>{if(!d||!Array.isArray(d.operators))return drawOps();
+  OPS=d.operators.sort((a,b)=>b.aircraft.length-a.aircraft.length);
+  [...new Set(OPS.map(o=>o.city).filter(Boolean))].sort().forEach(c=>$('opcity').add(new Option(c,c)));
+  if(d.updated)$('opsrc').innerHTML=`Every holder of a DGCA Non-Scheduled Operator Permit, from the <a href="${esc(d.sourceUrl)}" target="_blank" rel="noopener">official DGCA list</a> dated ${esc(d.updated)}. These companies are not YaanBook partners. Contact details are on the DGCA list.`;
+  drawOps()}).catch(()=>drawOps());
+$('stgo').onclick=async()=>{const m=$('stmsg'),say=(t,err)=>{m.innerHTML='';const e=document.createElement('div');e.className='msg'+(err?' err':'');e.textContent=t;m.appendChild(e)};
+  if(!$('sr').value.trim()||!$('sp').value.trim())return say('Enter both your reference and phone number.',1);
+  try{const r=await fetch('/api/status/'+encodeURIComponent($('sr').value.trim())+'?phone='+encodeURIComponent($('sp').value.trim()));const j=await r.json();if(!r.ok)return say(j.error,1);
+    say(j.status==='confirmed'?'Confirmed. Your concierge will contact you to finalise the details.':j.status==='declined'?'This request was declined.'+(j.reason?' Reason: '+j.reason:'')+' Please send a new request for another aircraft.':'Received. An operator is reviewing your request.')}
+  catch(e){say('Status checks need the YaanBook server, which is not running right now.',1)}};
+</script>
+</body>
+</html>
