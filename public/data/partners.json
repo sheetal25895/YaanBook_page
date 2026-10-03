@@ -1,0 +1,91 @@
+{
+ "about": "Updates from operators who have joined YaanBook. 'aircraft' entries override the DGCA data for that registration (base airport code, current location, real hourly rate in INR before GST, seats, or available:false to hide it). 'emptyLegs' are discounted one-way repositioning flights; remove 'sample' once a listing is real. 'operators' lists company names (exactly as on the DGCA list) shown with a partner badge.",
+ "operators": [],
+ "aircraft": [],
+ "emptyLegs": [
+  {
+   "id": "EL1",
+   "from": "BOM",
+   "to": "DEL",
+   "date": "2026-10-08",
+   "time": "14:00",
+   "model": "Embraer Legacy 600/650",
+   "cat": "heavy",
+   "seats": 13,
+   "price": 650000,
+   "was": 1900000,
+   "operator": "Partner operator",
+   "sample": true
+  },
+  {
+   "id": "EL2",
+   "from": "BLR",
+   "to": "HYD",
+   "date": "2026-10-09",
+   "time": "10:30",
+   "model": "Beechcraft King Air B200",
+   "cat": "tp",
+   "seats": 7,
+   "price": 95000,
+   "was": 260000,
+   "operator": "Partner operator",
+   "sample": true
+  },
+  {
+   "id": "EL3",
+   "from": "DED",
+   "to": "DEL",
+   "date": "2026-10-10",
+   "time": "16:00",
+   "model": "Bell 407",
+   "cat": "heli",
+   "seats": 6,
+   "price": 70000,
+   "was": 190000,
+   "operator": "Partner operator",
+   "sample": true
+  },
+  {
+   "id": "EL4",
+   "from": "GOI",
+   "to": "BOM",
+   "date": "2026-10-11",
+   "time": "11:00",
+   "model": "Cessna Citation XLS",
+   "cat": "mid",
+   "seats": 8,
+   "price": 210000,
+   "was": 560000,
+   "operator": "Partner operator",
+   "sample": true
+  },
+  {
+   "id": "EL5",
+   "from": "JAI",
+   "to": "DEL",
+   "date": "2026-10-12",
+   "time": "18:00",
+   "model": "Dassault Falcon 2000",
+   "cat": "smid",
+   "seats": 10,
+   "price": 240000,
+   "was": 690000,
+   "operator": "Partner operator",
+   "sample": true
+  },
+  {
+   "id": "EL6",
+   "from": "MAA",
+   "to": "BLR",
+   "date": "2026-10-14",
+   "time": "09:00",
+   "model": "Pilatus PC-12",
+   "cat": "tp",
+   "seats": 6,
+   "price": 60000,
+   "was": 150000,
+   "operator": "Partner operator",
+   "sample": true
+  }
+ ]
+}

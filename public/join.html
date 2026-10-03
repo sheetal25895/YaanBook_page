@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>YaanBook · List your aircraft</title>
+<meta name="description" content="Charter operators: list your jets and helicopters on YaanBook and get booking requests from customers near your base.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='23' fill='%230B1220' stroke='%23C9A45C' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+<style>
+.jgrid{display:grid;grid-template-columns:1fr 1.3fr;gap:24px;align-items:start}
+.why{display:grid;gap:12px}
+.why div{padding:18px;border:1px solid var(--line);border-radius:16px;background:var(--panel)}
+.why h3{font-size:22px;margin-bottom:6px}.why p{margin:0;color:var(--muted);font-size:14.5px}
+.jform{padding:22px}
+.jform label{display:block;font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.04em;margin:14px 0 6px}
+.jform input,.jform select,.jform textarea{width:100%;padding:11px 13px;border-radius:12px;border:1px solid var(--line);background:var(--bg2)}
+.jform input:focus,.jform select:focus{border-color:var(--gold);outline:none}
+.acrow{display:grid;grid-template-columns:1fr 1.3fr 1fr .9fr .6fr auto;gap:8px;align-items:end;padding:10px 0;border-bottom:1px solid var(--line)}
+.acrow label{margin-top:0}
+.acrow .rm{height:44px;width:40px;border-radius:12px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer}
+pre.json{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:12px;font-size:12.5px;overflow:auto;max-height:240px;white-space:pre-wrap}
+@media(max-width:900px){.jgrid{grid-template-columns:1fr}.acrow{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="./"><span><span class="word">Yaan<b>Book</b></span><small>For operators</small></span></a>
+  <nav aria-label="Main"><a href="./#search">Search flights</a><a href="./#deals">Empty legs</a><a href="./#operators">Operators</a></nav>
+  <a class="btn ghost" href="./">Back to search</a>
+</div></header>
+<main class="wrap">
+  <section class="block">
+    <div class="eyebrow">For NSOP operators</div>
+    <h1 style="font-size:clamp(38px,5vw,64px);margin:12px 0 10px">Get booked for the flights<br><em style="color:var(--gold2)">your aircraft is closest to.</em></h1>
+    <p class="hint" style="font-size:17px;max-width:44em">YaanBook already lists every DGCA-licensed aircraft at its registered city, priced at typical market rates. Confirm where your aircraft are actually parked and what you charge, and you'll rank above the estimates.</p>
+  </section>
+  <section class="block jgrid">
+    <div class="why">
+      <div><h3>No listing fee</h3><p>You pay a commission only on flights that are confirmed and flown.</p></div>
+      <div><h3>Customers near your base</h3><p>Our search puts the aircraft parked nearest the customer first, so your request volume follows where you are.</p></div>
+      <div><h3>Sell your empty legs</h3><p>Post your repositioning flights and we put them in front of travellers on that route.</p></div>
+      <div><h3>You stay in control</h3><p>Every request comes to you to accept or decline. You confirm the final quote.</p></div>
+    </div>
+    <form class="card jform" id="jf">
+      <h2 style="font-size:30px">List your fleet</h2>
+      <div class="two"><div><label for="jOp">Company name (as on DGCA permit)</label><input id="jOp" list="ops" required></div><div><label for="jAop">NSOP permit no.</label><input id="jAop" placeholder="#12/2024"></div></div>
+      <div class="two"><div><label for="jName">Contact person</label><input id="jName" autocomplete="name" required></div><div><label for="jPhone">Phone / WhatsApp</label><input id="jPhone" type="tel" autocomplete="tel" required></div></div>
+      <label for="jMail">Email</label><input id="jMail" type="email" autocomplete="email">
+      <h3 style="font-size:22px;margin-top:22px">Aircraft</h3>
+      <div id="rows"></div>
+      <button type="button" class="btn ghost small" id="add" style="margin-top:12px">+ Add aircraft</button>
+      <label for="jEl">Upcoming empty legs (optional)</label><textarea id="jEl" rows="2" placeholder="e.g. VT-ABC Mumbai → Delhi, 12 Oct, 14:00, ₹6.5L"></textarea>
+      <button class="btn" id="jGo" style="width:100%;padding:15px;margin-top:18px">Send listing</button>
+      <div id="jOut" aria-live="polite"></div>
+    </form>
+  </section>
+</main>
+<datalist id="ops"></datalist><datalist id="places"></datalist>
+<footer><div class="wrap"><p>YaanBook · <a href="mailto:yaanbook@gmail.com">yaanbook@gmail.com</a></p></div></footer>
+<script src="js/data.js"></script>
+<script>
+const $=id=>document.getElementById(id),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+$('places').innerHTML=PLACES.map(p=>`<option value="${p[0]}">${esc(p[2])} · ${esc(p[1])}</option>`).join('');
+let DG=null;fetch('data/operators.json').then(r=>r.json()).then(d=>{DG=d;$('ops').innerHTML=d.operators.map(o=>`<option value="${esc(o.name)}">`).join('')}).catch(()=>{});
+function row(v={}){const d=document.createElement('div');d.className='acrow';
+  d.innerHTML=`<div><label>Registration</label><input class="reg" placeholder="VT-XXX" value="${esc(v.reg||'')}"></div><div><label>Model</label><input class="model" value="${esc(v.model||'')}"></div>
+  <div><label>Parked at (airport code)</label><input class="base" list="places" placeholder="DEL" value="${esc(v.base||'')}"></div><div><label>Rate ₹/hour</label><input class="rate" type="number" min="0" step="1000" inputmode="numeric"></div>
+  <div><label>Seats</label><input class="seats" type="number" min="1" value="${esc(v.seats||'')}"></div><button type="button" class="rm" aria-label="Remove aircraft">✕</button>`;
+  d.querySelector('.rm').onclick=()=>d.remove();$('rows').appendChild(d)}
+row();$('add').onclick=()=>row();
+// Pre-fill the fleet from the DGCA list when the operator picks their company.
+$('jOp').onchange=()=>{const o=DG&&DG.operators.find(x=>x.name===$('jOp').value);if(!o)return;$('jAop').value=o.aop;$('rows').innerHTML='';
+  const base=CITY_BASE[o.city]||'';o.aircraft.forEach(a=>row({reg:a.reg,model:a.model,base,seats:parseInt(a.seats)||''}))};
+$('jGo').onclick=e=>{e.preventDefault();const out=$('jOut'),v=id=>$(id).value.trim();
+  if(!v('jOp')||!v('jName')||v('jPhone').replace(/\D/g,'').length<10){out.innerHTML='<div class="msg err">Add your company, contact name and a 10-digit phone number.</div>';return}
+  const ac=[...document.querySelectorAll('.acrow')].map(r=>({reg:r.querySelector('.reg').value.trim().toUpperCase(),model:r.querySelector('.model').value.trim(),base:r.querySelector('.base').value.trim().toUpperCase(),rate:+r.querySelector('.rate').value||0,seats:+r.querySelector('.seats').value||0})).filter(a=>a.reg||a.model);
+  const bad=ac.filter(a=>a.base&&!AIRPORTS[a.base]).map(a=>a.base);
+  if(bad.length){out.innerHTML=`<div class="msg err">Unknown airport code: ${esc(bad.join(', '))}. Pick from the list, for example DEL or BOM.</div>`;return}
+  const json=JSON.stringify(ac.filter(a=>a.reg).map(a=>({reg:a.reg,base:a.base||undefined,rate:a.rate||undefined,seats:a.seats||undefined,operator:v('jOp')})),null,1);
+  const text=`Operator listing\n${v('jOp')} (${v('jAop')||'permit no. not given'})\nContact: ${v('jName')}, ${v('jPhone')}${v('jMail')?', '+v('jMail'):''}\n\nAircraft:\n${ac.map(a=>`${a.reg||'?'} ${a.model} · at ${a.base||'?'} · ₹${a.rate.toLocaleString('en-IN')}/hr · ${a.seats||'?'} seats`).join('\n')}\n\nEmpty legs: ${v('jEl')||'none'}`;
+  const links=[['Send on WhatsApp',`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(text)}`],['Send by email',`mailto:${CONFIG.email}?subject=${encodeURIComponent('Operator listing: '+v('jOp'))}&body=${encodeURIComponent(text+'\n\npartners.json:\n'+json)}`]];
+  out.innerHTML=`<div class="msg">Your listing is ready. Send it to YaanBook and we'll verify your permit and switch your aircraft to confirmed rates within one working day.<br>${links.map(([l,u])=>`<a href="${esc(u)}" target="_blank" rel="noopener">${l}</a>`).join('')}</div>`};
+</script>
+</body>
+</html>

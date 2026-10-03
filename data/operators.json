@@ -1,0 +1,4224 @@
+{
+ "source": "Directorate General of Civil Aviation (DGCA), List of Non-Scheduled Operators",
+ "sourceUrl": "https://public-prd-dgca.s3.ap-south-1.amazonaws.com/InventoryList/airOperation/certification/nonscheduled/ns-oper.pdf",
+ "updated": "31.08.2026",
+ "imported": "2026-09-28",
+ "operators": [
+  {
+   "sno": 1,
+   "name": "Aerokalinga Aviation Pvt. Ltd.",
+   "city": "Angul",
+   "aop": "#17/2025",
+   "valid": "15.10.2030",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "Beech Super King Air B200",
+     "reg": "VT-YUD",
+     "seats": "8"
+    },
+    {
+     "kind": "FW",
+     "model": "EMB-135 (LEGACY 600)",
+     "reg": "VT-OXL",
+     "seats": "13"
+    }
+   ]
+  },
+  {
+   "sno": 2,
+   "name": "Afcom Holdings Ltd.",
+   "city": "Chennai",
+   "aop": "#12/2024",
+   "valid": "11.12.2029",
+   "declared": "3",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "B737-800 Freighter",
+     "reg": "VT-AFO",
+     "seats": "Cargo"
+    },
+    {
+     "kind": "FW",
+     "model": "B737-800 Freighter",
+     "reg": "VT-AFN",
+     "seats": "Cargo"
+    },
+    {
+     "kind": "FW",
+     "model": "B737-800 Freighter",
+     "reg": "VT-AFJ",
+     "seats": "Cargo"
+    }
+   ]
+  },
+  {
+   "sno": 3,
+   "name": "Airports Authority of India",
+   "city": "Delhi",
+   "aop": "#03/2019",
+   "valid": "14.05.2029",
+   "declared": "4",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "Super King Air B300",
+     "reg": "VT-FIU",
+     "seats": "4"
+    },
+    {
+     "kind": "FW",
+     "model": "Dornier DO-228-201",
+     "reg": "VT-EPU",
+     "seats": "7"
+    },
+    {
+     "kind": "FW",
+     "model": "Super King Air B300",
+     "reg": "VT-FIS",
+     "seats": "7/Aerial Work"
+    },
+    {
+     "kind": "FW",
+     "model": "Super King Air B300",
+     "reg": "VT-CNS",
+     "seats": "7/Aerial Work"
+    }
+   ]
+  },
+  {
+   "sno": 4,
+   "name": "Air Charters Services Pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#15/2008",
+   "valid": "14.05.2029",
+   "declared": "11",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "SUPER KINGAIR B200",
+     "reg": "VT-FAE",
+     "seats": "7"
+    },
+    {
+     "kind": "RW",
+     "model": "AGUSTA A109S",
+     "reg": "VT-IKR",
+     "seats": "6"
+    },
+    {
+     "kind": "FW",
+     "model": "CESSNA CITATION 560XL EXCEL",
+     "reg": "VT-CVV",
+     "seats": "7"
+    },
+    {
+     "kind": "FW",
+     "model": "FALCON2000LX",
+     "reg": "VT-BVV",
+     "seats": "10"
+    },
+    {
+     "kind": "FW",
+     "model": "CESSNA CITATION 560XL EXCEL",
+     "reg": "VT-DVV",
+     "seats": "9"
+    },
+    {
+     "kind": "FW",
+     "model": "CESSNA CITATION 560XL EXCEL",
+     "reg": "VT-JVV",
+     "seats": "9"
+    },
+    {
+     "kind": "FW",
+     "model": "FALCON 7X (M 1000)",
+     "reg": "VT-HVV",
+     "seats": "14"
+    },
+    {
+     "kind": "RW",
+     "model": "A109S",
+     "reg": "VT-KVV",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "A109S",
+     "reg": "VT-MVV",
+     "seats": "6"
+    },
+    {
+     "kind": "FW",
+     "model": "CITATION 525A CJ2+",
+     "reg": "VT-PVV",
+     "seats": "7"
+    },
+    {
+     "kind": "FW",
+     "model": "Falcon 6X",
+     "reg": "VT-YVV",
+     "seats": "14"
+    }
+   ]
+  },
+  {
+   "sno": 5,
+   "name": "Aman Aviation & Aerospace Solutions Pvt. Ltd.",
+   "city": "Mumbai",
+   "aop": "#10/2012",
+   "valid": "13.09.2028",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "ROBINSON R44",
+     "reg": "VT-CNJ",
+     "seats": "3"
+    },
+    {
+     "kind": "RW",
+     "model": "AS365N3",
+     "reg": "VT-NRJ",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 6,
+   "name": "Aone Helicopters Private Limited",
+   "city": "Jaipur",
+   "aop": "#07/2026",
+   "valid": "15.04.2031",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "Robinson R44 RAVEN II",
+     "reg": "VT-BOS",
+     "seats": "3"
+    }
+   ]
+  },
+  {
+   "sno": 7,
+   "name": "AR Airways Pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#01/2005",
+   "valid": "11.05.2029",
+   "declared": "7",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "CESSNA CITATION 560 XL",
+     "reg": "VT-CLA",
+     "seats": "8"
+    },
+    {
+     "kind": "FW",
+     "model": "CESSNA CITATION II",
+     "reg": "VT-CLB",
+     "seats": "7"
+    },
+    {
+     "kind": "FW",
+     "model": "FALCON 2000",
+     "reg": "VT-ARF",
+     "seats": "8"
+    },
+    {
+     "kind": "FW",
+     "model": "FALCON 2000",
+     "reg": "VT-CLF",
+     "seats": "10"
+    },
+    {
+     "kind": "FW",
+     "model": "FALCON 2000",
+     "reg": "VT-ARC",
+     "seats": "9"
+    },
+    {
+     "kind": "FW",
+     "model": "FALCON 2000",
+     "reg": "VT-ARO",
+     "seats": "12"
+    },
+    {
+     "kind": "FW",
+     "model": "FALCON 2000",
+     "reg": "VT-ARM",
+     "seats": "8"
+    }
+   ]
+  },
+  {
+   "sno": 8,
+   "name": "Aryan Aviation Pvt. Ltd.",
+   "city": "Mumbai",
+   "aop": "#13/2009",
+   "valid": "07.04.2029",
+   "declared": "6",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "EUROCOPTER AS355N",
+     "reg": "VT-SIL",
+     "seats": "5"
+    },
+    {
+     "kind": "RW",
+     "model": "AS365N2 DAUPHIN",
+     "reg": "VT-SIM",
+     "seats": "5"
+    },
+    {
+     "kind": "FW",
+     "model": "STEMME S6RT",
+     "reg": "VT-AVL",
+     "seats": "2"
+    },
+    {
+     "kind": "FW",
+     "model": "STEMME S6RT",
+     "reg": "VT-AVM",
+     "seats": "2"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL 407",
+     "reg": "VT-ARB",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL 407",
+     "reg": "VT-BKA",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 9,
+   "name": "Arrow Aircrafts Sales & Charters Pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#4/2014",
+   "valid": "10.03.2028",
+   "declared": "6",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "BELL 407",
+     "reg": "VT-JPH",
+     "seats": "6/Aerial Work"
+    },
+    {
+     "kind": "RW",
+     "model": "AS350B3",
+     "reg": "VT-ASC",
+     "seats": "6/Aerial Work"
+    },
+    {
+     "kind": "FW",
+     "model": "BEECH SKA B200GT",
+     "reg": "VT-YAN",
+     "seats": "9"
+    },
+    {
+     "kind": "RW",
+     "model": "AS350B3",
+     "reg": "VT-ASD",
+     "seats": "6/Aerial Work"
+    },
+    {
+     "kind": "FW",
+     "model": "Embraer EMB135BJ (Legacy 650)",
+     "reg": "VT-TEN",
+     "seats": "10"
+    },
+    {
+     "kind": "RW",
+     "model": "AW169",
+     "reg": "VT-TOP",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 10,
+   "name": "Aurea Aviation Private Limited",
+   "city": "Mumbai",
+   "aop": "#06/2026",
+   "valid": "29.03.2031",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "PC-12/45",
+     "reg": "VT-ACG",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 11,
+   "name": "Avenor Aviation LLP",
+   "city": "Pune",
+   "aop": "#08/2026",
+   "valid": "09.07.2031",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "BEECH SUPER KING AIR B-200",
+     "reg": "VT-RJA",
+     "seats": "7"
+    }
+   ]
+  },
+  {
+   "sno": 12,
+   "name": "Aviation Connectivity & Infrastructure Developers Pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#07/2023",
+   "valid": "02.07.2028",
+   "declared": "5",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "TECNAM P2010TDI",
+     "reg": "VT-KTC",
+     "seats": "3"
+    },
+    {
+     "kind": "FW",
+     "model": "TECNAM P2010TDI",
+     "reg": "VT-XIA",
+     "seats": "3"
+    },
+    {
+     "kind": "FW",
+     "model": "TECNAM P2010TDI",
+     "reg": "VT-XIB",
+     "seats": "3"
+    },
+    {
+     "kind": "FW",
+     "model": "TECNAM P2010TDI",
+     "reg": "VT-IXC",
+     "seats": "3"
+    },
+    {
+     "kind": "FW",
+     "model": "TECNAM P2010TDI",
+     "reg": "VT-FCA",
+     "seats": "3"
+    }
+   ]
+  },
+  {
+   "sno": 13,
+   "name": "Avocet Aviation Pvt. Ltd.",
+   "city": "Ahmedabad",
+   "aop": "#10/2023",
+   "valid": "01.11.2028",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "Beechcraft Premier1A-390",
+     "reg": "VT-BNB",
+     "seats": "6"
+    },
+    {
+     "kind": "FW",
+     "model": "Beechcraft Premier1A-390",
+     "reg": "VT-BBN",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 14,
+   "name": "Bajaj Aviation Pvt. Ltd.",
+   "city": "Mumbai",
+   "aop": "#14/2012",
+   "valid": "10.12.2028",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "FALCON 2000LX",
+     "reg": "VT-AYV",
+     "seats": "10"
+    }
+   ]
+  },
+  {
+   "sno": 15,
+   "name": "Baramati Agro Limited",
+   "city": "Pune",
+   "aop": "#14/2025",
+   "valid": "17.09.2031",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "Bell407GXP",
+     "reg": "VT-RRP",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 16,
+   "name": "Bativala M Bhagvati Flying Charters LLP",
+   "city": "Mumbai",
+   "aop": "#05/2023",
+   "valid": "31.05.2028",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "CESSNA R172K",
+     "reg": "VT-IJS",
+     "seats": "3"
+    },
+    {
+     "kind": "FW",
+     "model": "CESSNA172S",
+     "reg": "VT-GEM",
+     "seats": "3"
+    }
+   ]
+  },
+  {
+   "sno": 17,
+   "name": "B.G. Shirke Construction Technology Pvt. Ltd.",
+   "city": "Pune",
+   "aop": "#10/2010",
+   "valid": "21.12.2028",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "Bell427",
+     "reg": "VT-PBS",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 18,
+   "name": "Bluecraft Aviation Pvt Ltd",
+   "city": "Ahmedabad",
+   "aop": "#09/2026",
+   "valid": "15.07.2031",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "CESSNA CITATION CJ2",
+     "reg": "VT-DOV",
+     "seats": "7"
+    }
+   ]
+  },
+  {
+   "sno": 19,
+   "name": "Carewell Aviation India Pvt. Ltd.",
+   "city": "Kolkata",
+   "aop": "#11/2023",
+   "valid": "09.11.2028",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "Embraer EMB-135 (Legacy 600)",
+     "reg": "VT-KOL",
+     "seats": "13"
+    },
+    {
+     "kind": "RW",
+     "model": "AW109SP",
+     "reg": "VT-GIM",
+     "seats": "7"
+    }
+   ]
+  },
+  {
+   "sno": 20,
+   "name": "Charlie Foxtrot Aviation Service Pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#03/2020",
+   "valid": "27.12.2030",
+   "declared": "5",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "CHALLENGER 605 CL-600-2B16",
+     "reg": "VT-CVA",
+     "seats": "9"
+    },
+    {
+     "kind": "FW",
+     "model": "CHALLENGER 605 CL-600-2B16",
+     "reg": "VT-CVB",
+     "seats": "9"
+    },
+    {
+     "kind": "FW",
+     "model": "CL-600-2B16 CL 604 VARIANT (CL605)",
+     "reg": "VT-CVC",
+     "seats": "9"
+    },
+    {
+     "kind": "FW",
+     "model": "CL-600-2B16 CL 604 VARIANT (CL605)",
+     "reg": "VT-CVD",
+     "seats": "12"
+    },
+    {
+     "kind": "FW",
+     "model": "CL-600-2B16 CL 604 VARIANT (CL605)",
+     "reg": "VT-CVE",
+     "seats": "12"
+    }
+   ]
+  },
+  {
+   "sno": 21,
+   "name": "Chipsan Aviation Pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#04/2017",
+   "valid": "22.05.2029",
+   "declared": "9",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "EC135P2+",
+     "reg": "VT-IBA",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL 407",
+     "reg": "VT-RPO",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "Airbus H145 D3 (MBB-BK117 D-3)",
+     "reg": "VT-RGQ",
+     "seats": "8"
+    },
+    {
+     "kind": "RW",
+     "model": "AS350B3",
+     "reg": "VT-RGL",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "AS350B3",
+     "reg": "VT-RGM",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "H160-B",
+     "reg": "VT-RGR",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "H160-B",
+     "reg": "VT-RGO",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "H160-B",
+     "reg": "VT-RGY",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "H160-B",
+     "reg": "VT-RGZ",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 22,
+   "name": "Dadachanji Aviation Pvt. Ltd.",
+   "city": "Mumbai",
+   "aop": "#11/2024",
+   "valid": "29.10.2029",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "EC130T2",
+     "reg": "VT-KPR",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 23,
+   "name": "Davangere Sugar Company Ltd.",
+   "city": "Bengaluru",
+   "aop": "#4/2012",
+   "valid": "29.04.2028",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "AS 350 B3",
+     "reg": "VT-DVG",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 24,
+   "name": "Deccan Charters Pvt. Ltd.",
+   "city": "Bengaluru",
+   "aop": "#26/2008",
+   "valid": "06.10.2028",
+   "declared": "9",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "BELL 206 L4",
+     "reg": "VT-RBG",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "ECUREUIL AS-355 F1",
+     "reg": "VT-DAX",
+     "seats": "5"
+    },
+    {
+     "kind": "RW",
+     "model": "AS 350 B3",
+     "reg": "VT-DCB",
+     "seats": "6"
+    },
+    {
+     "kind": "FW",
+     "model": "Hawker 900XP",
+     "reg": "VT-TSG",
+     "seats": "9"
+    },
+    {
+     "kind": "RW",
+     "model": "Bell 429",
+     "reg": "VT-CSL",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "Sikorsky S-76C",
+     "reg": "VT-KNH",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "AS 350 B3",
+     "reg": "VT-UDY",
+     "seats": "6"
+    },
+    {
+     "kind": "FW",
+     "model": "Hawker 850XP",
+     "reg": "VT-AGP",
+     "seats": "8"
+    },
+    {
+     "kind": "RW",
+     "model": "EC-130 B4",
+     "reg": "VT-DCV",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 25,
+   "name": "Dhillon Aviation Pvt. Ltd.",
+   "city": "Gurugram",
+   "aop": "#5/2005",
+   "valid": "07.09.2028",
+   "declared": "3",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "BELL206 L4",
+     "reg": "VT-IQB",
+     "seats": "6/Aerial Work"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL206 L4",
+     "reg": "VT-ZIN",
+     "seats": "6/Aerial Work"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL412",
+     "reg": "VT-HKL",
+     "seats": "13"
+    }
+   ]
+  },
+  {
+   "sno": 26,
+   "name": "Dunes Aviation Private Limited",
+   "city": "Rajasthan",
+   "aop": "#08/2024",
+   "valid": "13.10.2029",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "CITATION 525A CJ2+",
+     "reg": "VT-NDA",
+     "seats": "7"
+    },
+    {
+     "kind": "FW",
+     "model": "CHALLENGER CL 600-2B16-CL 604",
+     "reg": "VT-ZST",
+     "seats": "9"
+    }
+   ]
+  },
+  {
+   "sno": 27,
+   "name": "E-Factor Adventure Tourism (P) Ltd.",
+   "city": "Delhi",
+   "aop": "#1/2008",
+   "valid": "01.01.2029",
+   "declared": "9",
+   "aircraft": [
+    {
+     "kind": "B",
+     "model": "T210 ULTRAMAGIC (HOT AIR BALLOON)",
+     "reg": "VT-BIG",
+     "seats": "9"
+    },
+    {
+     "kind": "B",
+     "model": "T210 ULTRAMAGIC (HOT AIR BALLOON)",
+     "reg": "VT-FAR",
+     "seats": "9"
+    },
+    {
+     "kind": "B",
+     "model": "CAMERON A-210 (HOT AIR BALLOON)",
+     "reg": "VT-GOA",
+     "seats": "9"
+    },
+    {
+     "kind": "B",
+     "model": "CAMERON A-105 (HOT AIR BALLOON)",
+     "reg": "VT-WOW",
+     "seats": "5"
+    },
+    {
+     "kind": "B",
+     "model": "CAMERON A-120 (HOT AIR BALLOON)",
+     "reg": "VT-FUN",
+     "seats": "4"
+    },
+    {
+     "kind": "B",
+     "model": "ULTRAMAGIC N-355 (HOT AIR BALLOON)",
+     "reg": "VT-OMG",
+     "seats": "16"
+    },
+    {
+     "kind": "B",
+     "model": "ULTRAMAGIC N-425 (HOT AIR BALLOON)",
+     "reg": "VT-FLO",
+     "seats": "24"
+    },
+    {
+     "kind": "B",
+     "model": "ULTRAMAGIC N-250 (HOT AIR BALLOON)",
+     "reg": "VT-RUN",
+     "seats": "10"
+    },
+    {
+     "kind": "B",
+     "model": "ULTRAMAGIC T-210 (HOT AIR BALLOON)",
+     "reg": "VT-JHK",
+     "seats": "10"
+    }
+   ]
+  },
+  {
+   "sno": 28,
+   "name": "EHA Aviation Pvt. Ltd.",
+   "city": "Ahmedabad",
+   "aop": "#01/2022",
+   "valid": "31.03.2027",
+   "declared": "3",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "EMB135BJ (LEGACY 650)",
+     "reg": "VT-NKS",
+     "seats": "13"
+    },
+    {
+     "kind": "FW",
+     "model": "Cessna Citation 560XLS+",
+     "reg": "VT-SKN",
+     "seats": "9"
+    },
+    {
+     "kind": "FW",
+     "model": "BD-700- 1A11(GLOBAL 5500)",
+     "reg": "VT-DIA",
+     "seats": "13"
+    }
+   ]
+  },
+  {
+   "sno": 29,
+   "name": "EIH Ltd.",
+   "city": "Delhi",
+   "aop": "#02/1996",
+   "valid": "01.08.2029",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "HAWKER 850XP",
+     "reg": "VT-OBR",
+     "seats": "9"
+    }
+   ]
+  },
+  {
+   "sno": 30,
+   "name": "Empire Aircraft Management Services Pvt. Ltd.",
+   "city": "Bengaluru",
+   "aop": "#08/2017",
+   "valid": "31.03.2027",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "King Air 250 (B200GT)",
+     "reg": "VT-SMS",
+     "seats": "7"
+    },
+    {
+     "kind": "FW",
+     "model": "Falcon2000LX",
+     "reg": "VT-FLX",
+     "seats": "8"
+    }
+   ]
+  },
+  {
+   "sno": 31,
+   "name": "EMSOS Aviation Private Limited",
+   "city": "Delhi",
+   "aop": "#11/2022",
+   "valid": "11.10.2027",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "Citation 525A CJ2+",
+     "reg": "VT-ECG",
+     "seats": "7"
+    }
+   ]
+  },
+  {
+   "sno": 32,
+   "name": "Everdeliver Logistics Pvt. Ltd.",
+   "city": "Kolkata",
+   "aop": "#02/2025",
+   "valid": "23.01.2030",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "PC-12/47E",
+     "reg": "VT-SKJ",
+     "seats": "8"
+    }
+   ]
+  },
+  {
+   "sno": 33,
+   "name": "Falcon Aviation Services Pvt. Ltd.",
+   "city": "Punjab",
+   "aop": "#06/2024",
+   "valid": "24.06.2029",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "AW169",
+     "reg": "VT-DBJ",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 34,
+   "name": "Fairwinds Aviation Pvt. Ltd.",
+   "city": "Ludhiana",
+   "aop": "#01/2019",
+   "valid": "10.01.2029",
+   "declared": "3",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "CESSNA 206H",
+     "reg": "VT-SSJ",
+     "seats": "4"
+    },
+    {
+     "kind": "FW",
+     "model": "CESSNA T206H",
+     "reg": "VT-GYN",
+     "seats": "Aerial Work"
+    },
+    {
+     "kind": "FW",
+     "model": "CESSNA T206H",
+     "reg": "VT-GIC",
+     "seats": "Aerial Work"
+    }
+   ]
+  },
+  {
+   "sno": 35,
+   "name": "Fern Aviation India Pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#07/2017",
+   "valid": "21.08.2027",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "HAWKER 850XP",
+     "reg": "VT-JHP",
+     "seats": "9"
+    }
+   ]
+  },
+  {
+   "sno": 36,
+   "name": "Flaps Aviation Pvt. Ltd.",
+   "city": "Haryana",
+   "aop": "#07/2022",
+   "valid": "20.09.2027",
+   "declared": "5",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "Beech Kingair C90A",
+     "reg": "VT-RSL",
+     "seats": "6"
+    },
+    {
+     "kind": "FW",
+     "model": "BEECH SUPER KING AIR B-200",
+     "reg": "VT-RAS",
+     "seats": "9"
+    },
+    {
+     "kind": "FW",
+     "model": "BEECH SUPER KING AIR B-200",
+     "reg": "VT-REM",
+     "seats": "9"
+    },
+    {
+     "kind": "FW",
+     "model": "BEECH SUPER KING AIR B-200",
+     "reg": "VT-LKK",
+     "seats": "7"
+    },
+    {
+     "kind": "FW",
+     "model": "BEECH KING AIR C-90A",
+     "reg": "VT-SLK",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 37,
+   "name": "FLYSBS AVIATION LIMITED",
+   "city": "Chennai",
+   "aop": "#13/2023",
+   "valid": "18.12.2028",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "EMB-135 (LEGACY 600)",
+     "reg": "VT-SSR",
+     "seats": "13"
+    },
+    {
+     "kind": "FW",
+     "model": "EMB-135BJ (LEGACY 650)",
+     "reg": "VT-GPS",
+     "seats": "13"
+    }
+   ]
+  },
+  {
+   "sno": 38,
+   "name": "Forum I Aviation Pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#01/2006",
+   "valid": "20.03.2029",
+   "declared": "3",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "HAWKER 800XP",
+     "reg": "VT-FAF",
+     "seats": "8"
+    },
+    {
+     "kind": "FW",
+     "model": "HAWKER 850XP",
+     "reg": "VT-KNB",
+     "seats": "8"
+    },
+    {
+     "kind": "FW",
+     "model": "CHALLENGER 650 CL-600-2B16",
+     "reg": "VT-BBD",
+     "seats": "10"
+    }
+   ]
+  },
+  {
+   "sno": 39,
+   "name": "Freedom Charter Services Pvt. Ltd.",
+   "city": "Mumbai",
+   "aop": "#01/2013",
+   "valid": "28.01.2029",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "HAWKER BEECHCRAFT 900XP",
+     "reg": "VT-AJM",
+     "seats": "9"
+    },
+    {
+     "kind": "FW",
+     "model": "EMB-135BJ (LEGACY 650)",
+     "reg": "VT-AMG",
+     "seats": "13"
+    }
+   ]
+  },
+  {
+   "sno": 40,
+   "name": "Global Vectra Helicorp Limited",
+   "city": "Mumbai",
+   "aop": "#08/1998",
+   "valid": "28.04.2028",
+   "declared": "26",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "BELL 412 EP",
+     "reg": "VT-AZS",
+     "seats": "13"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL 412 EP",
+     "reg": "VT-GVA",
+     "seats": "13"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL 412 EP",
+     "reg": "VT-GVL",
+     "seats": "13"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL 412 EP",
+     "reg": "VT-GVK",
+     "seats": "13"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL 412 EP",
+     "reg": "VT-GVM",
+     "seats": "13"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL 412 EP",
+     "reg": "VT-GVT",
+     "seats": "13"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL 412 EP",
+     "reg": "VT-GVW",
+     "seats": "13"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL 412 EP",
+     "reg": "VT-GVX",
+     "seats": "13"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL 412 EP",
+     "reg": "VT-GVY",
+     "seats": "13"
+    },
+    {
+     "kind": "RW",
+     "model": "AS 350 B3",
+     "reg": "VT-GVF",
+     "seats": "6/Aerial Work"
+    },
+    {
+     "kind": "RW",
+     "model": "AW 139",
+     "reg": "VT-GVP",
+     "seats": "15"
+    },
+    {
+     "kind": "RW",
+     "model": "AW169",
+     "reg": "VT-GVZ",
+     "seats": "8"
+    },
+    {
+     "kind": "RW",
+     "model": "AS 350 B3e",
+     "reg": "VT-RRA",
+     "seats": "6/Aerial Work"
+    },
+    {
+     "kind": "RW",
+     "model": "AS 350 B3e",
+     "reg": "VT-RRB",
+     "seats": "6/Aerial Work"
+    },
+    {
+     "kind": "RW",
+     "model": "AW169",
+     "reg": "VT-RRC",
+     "seats": "8"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL412 EP",
+     "reg": "VT-RRD",
+     "seats": "13"
+    },
+    {
+     "kind": "RW",
+     "model": "AW139",
+     "reg": "VT-RRE",
+     "seats": "15"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL412EP",
+     "reg": "VT-RRF",
+     "seats": "13"
+    },
+    {
+     "kind": "RW",
+     "model": "AW169",
+     "reg": "VT-RRG",
+     "seats": "8"
+    },
+    {
+     "kind": "RW",
+     "model": "AS 350 B3e",
+     "reg": "VT-RRH",
+     "seats": "6/Aerial Work"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL412EP",
+     "reg": "VT-RRI",
+     "seats": "13"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL412EP",
+     "reg": "VT-RRJ",
+     "seats": "11"
+    },
+    {
+     "kind": "RW",
+     "model": "AW169",
+     "reg": "VT-RRK",
+     "seats": "8"
+    },
+    {
+     "kind": "RW",
+     "model": "AW169",
+     "reg": "VT-RRL",
+     "seats": "8"
+    },
+    {
+     "kind": "RW",
+     "model": "AW169",
+     "reg": "VT-RRN",
+     "seats": "8"
+    },
+    {
+     "kind": "RW",
+     "model": "AW169",
+     "reg": "VT-RRO",
+     "seats": "10"
+    }
+   ]
+  },
+  {
+   "sno": 41,
+   "name": "Ghodawat Enterprises Pvt. Ltd.",
+   "city": "Maharashtra",
+   "aop": "#06/2014",
+   "valid": "17.03.2028",
+   "declared": "4",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "EC-135",
+     "reg": "VT-GSD",
+     "seats": "5"
+    },
+    {
+     "kind": "RW",
+     "model": "EC-130 T2",
+     "reg": "VT-ISG",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "EC-135T3H",
+     "reg": "VT-GSR",
+     "seats": "5"
+    },
+    {
+     "kind": "RW",
+     "model": "MBB-BK117 D-3",
+     "reg": "VT-RGP",
+     "seats": "7"
+    }
+   ]
+  },
+  {
+   "sno": 42,
+   "name": "GMR Aviation Pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#06/2007",
+   "valid": "06.08.2028",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "FALCON 2000EX",
+     "reg": "VT-BRK",
+     "seats": "9"
+    },
+    {
+     "kind": "FW",
+     "model": "EMB135BJ (LEGACY 650)",
+     "reg": "VT-RDS",
+     "seats": "13"
+    }
+   ]
+  },
+  {
+   "sno": 43,
+   "name": "Golden Baritone Private Limited",
+   "city": "Delhi",
+   "aop": "#13/2025",
+   "valid": "14.09.2030",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "G-200",
+     "reg": "VT-PCR",
+     "seats": "10"
+    }
+   ]
+  },
+  {
+   "sno": 44,
+   "name": "Golden Crane Aviation Pvt. Ltd.",
+   "city": "Kolkata",
+   "aop": "#03/2023",
+   "valid": "08.03.2028",
+   "declared": "3",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "Agusta A109E",
+     "reg": "VT-VSR",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "Agusta A109E",
+     "reg": "VT-RAJ",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "SIKORSKY S-76D",
+     "reg": "VT-GDC",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 45,
+   "name": "GSEC Aviation Limited",
+   "city": "Ahmedabad",
+   "aop": "#15/2025",
+   "valid": "21.09.2030",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "Bombardier Challenger 605",
+     "reg": "VT-APL",
+     "seats": "10"
+    }
+   ]
+  },
+  {
+   "sno": 46,
+   "name": "Himalyaputra Aviation Ltd.",
+   "city": "Delhi",
+   "aop": "#11/2012",
+   "valid": "09.10.2028",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "BEECH CRAFT KING AIR B200GT",
+     "reg": "VT-JMG",
+     "seats": "7"
+    },
+    {
+     "kind": "RW",
+     "model": "AGUSTA 109E",
+     "reg": "VT-JIT",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 47,
+   "name": "Himalayan Heli Services Ltd.",
+   "city": "Delhi",
+   "aop": "#01/2002",
+   "valid": "17.01.2029",
+   "declared": "5",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "AS 350 B3 ECUREUIL",
+     "reg": "VT-BSG",
+     "seats": "6/Aerial Work"
+    },
+    {
+     "kind": "RW",
+     "model": "AS 350 B3",
+     "reg": "VT-BKJ",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "AS 350 B3",
+     "reg": "VT-HHB",
+     "seats": "5"
+    },
+    {
+     "kind": "RW",
+     "model": "AS 350 B3E",
+     "reg": "VT-HHC",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "AS 350 B3E",
+     "reg": "VT-HHD",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 48,
+   "name": "Heritage Aviation Pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#04/2015",
+   "valid": "30.06.2029",
+   "declared": "5",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "AS350B3E",
+     "reg": "VT-RMX",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "AS350B3E",
+     "reg": "VT-HKX",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "AS350B3E",
+     "reg": "VT-HJX",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "EC130T2",
+     "reg": "VT-HIX",
+     "seats": "7"
+    },
+    {
+     "kind": "RW",
+     "model": "EC130T2",
+     "reg": "VT-HOX",
+     "seats": "7"
+    }
+   ]
+  },
+  {
+   "sno": 49,
+   "name": "Heligo Charters Pvt. Limited",
+   "city": "Mumbai",
+   "aop": "#01/2009",
+   "valid": "10.02.2029",
+   "declared": "16",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "AW139",
+     "reg": "VT-HLD",
+     "seats": "15"
+    },
+    {
+     "kind": "RW",
+     "model": "AW139",
+     "reg": "VT-HLH",
+     "seats": "15"
+    },
+    {
+     "kind": "RW",
+     "model": "AS 365 N3",
+     "reg": "VT-HLI",
+     "seats": "11"
+    },
+    {
+     "kind": "RW",
+     "model": "AS 365 N3",
+     "reg": "VT-HLJ",
+     "seats": "11"
+    },
+    {
+     "kind": "RW",
+     "model": "H145",
+     "reg": "VT-HLP",
+     "seats": "8"
+    },
+    {
+     "kind": "RW",
+     "model": "H145",
+     "reg": "VT-HLQ",
+     "seats": "9"
+    },
+    {
+     "kind": "RW",
+     "model": "AW139",
+     "reg": "VT-HLR",
+     "seats": "15"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL 412EP",
+     "reg": "VT-HLS",
+     "seats": "11"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL 412EP",
+     "reg": "VT-HLT",
+     "seats": "11"
+    },
+    {
+     "kind": "RW",
+     "model": "AW139",
+     "reg": "VT-HLU",
+     "seats": "15"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL 412 EPI",
+     "reg": "VT-HLV",
+     "seats": "13"
+    },
+    {
+     "kind": "RW",
+     "model": "H145",
+     "reg": "VT-HLW",
+     "seats": "8"
+    },
+    {
+     "kind": "RW",
+     "model": "H145",
+     "reg": "VT-HLX",
+     "seats": "8"
+    },
+    {
+     "kind": "RW",
+     "model": "H145",
+     "reg": "VT-HLZ",
+     "seats": "8"
+    },
+    {
+     "kind": "RW",
+     "model": "H145",
+     "reg": "VT-HLY",
+     "seats": "8"
+    },
+    {
+     "kind": "RW",
+     "model": "AW139",
+     "reg": "VT-HNB",
+     "seats": "15"
+    }
+   ]
+  },
+  {
+   "sno": 50,
+   "name": "Himanad Management Services Private Limited",
+   "city": "Gurugram",
+   "aop": "#16/2025",
+   "valid": "22.09.2030",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "AW169",
+     "reg": "VT-HAB",
+     "seats": "7"
+    }
+   ]
+  },
+  {
+   "sno": 51,
+   "name": "HN Safal Aviation Pvt. Ltd.",
+   "city": "Ahmedabad",
+   "aop": "#07/2019",
+   "valid": "24.10.2029",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "Gulfstream G-150",
+     "reg": "VT-GKB",
+     "seats": "7"
+    },
+    {
+     "kind": "FW",
+     "model": "Gulfstream G-150",
+     "reg": "VT-HNA",
+     "seats": "8"
+    }
+   ]
+  },
+  {
+   "sno": 52,
+   "name": "Hyderabad Airlines Pvt. Ltd.",
+   "city": "Hyderabad",
+   "aop": "#14/2022",
+   "valid": "12.12.2027",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "EC 135P3H",
+     "reg": "VT-BHH",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 53,
+   "name": "IIC Technologies Limited",
+   "city": "Hyderabad",
+   "aop": "#06/2015",
+   "valid": "09.07.2029",
+   "declared": "3",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "CESSNA CARAVAN 208B",
+     "reg": "VT-IIC",
+     "seats": "9"
+    },
+    {
+     "kind": "FW",
+     "model": "CESSNA CARAVAN 208B",
+     "reg": "VT-ASU",
+     "seats": "9"
+    },
+    {
+     "kind": "FW",
+     "model": "CESSNA 206H",
+     "reg": "VT-HSR",
+     "seats": "Aerial Work"
+    }
+   ]
+  },
+  {
+   "sno": 54,
+   "name": "Indocopters Pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#06/2006",
+   "valid": "24.08.2028",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "AS 350 B3 ECUREUIL",
+     "reg": "VT-VAD",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 55,
+   "name": "Indo Pacific Aviation Pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#03/1997",
+   "valid": "14.10.2028",
+   "declared": "10",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "AGUSTA A109E",
+     "reg": "VT-FOR",
+     "seats": "8"
+    },
+    {
+     "kind": "FW",
+     "model": "Hawker 800XP",
+     "reg": "VT-LIB",
+     "seats": "8"
+    },
+    {
+     "kind": "FW",
+     "model": "Hawker 800XP",
+     "reg": "VT-POP",
+     "seats": "7"
+    },
+    {
+     "kind": "FW",
+     "model": "Embraer EMB-135 (Legacy 600)",
+     "reg": "VT-SFU",
+     "seats": "13"
+    },
+    {
+     "kind": "FW",
+     "model": "Hawker 800XP",
+     "reg": "VT-MUM",
+     "seats": "9"
+    },
+    {
+     "kind": "RW",
+     "model": "AW109SP",
+     "reg": "VT-ZEN",
+     "seats": "6"
+    },
+    {
+     "kind": "FW",
+     "model": "Cessna Citation CJ2 525A",
+     "reg": "VT-MON",
+     "seats": "7"
+    },
+    {
+     "kind": "FW",
+     "model": "HAWKER900XP",
+     "reg": "VT-JRG",
+     "seats": "9"
+    },
+    {
+     "kind": "FW",
+     "model": "CESSNA T206H",
+     "reg": "VT-BMS",
+     "seats": "Aerial Work"
+    },
+    {
+     "kind": "FW",
+     "model": "BD-700-1A10(G6000)",
+     "reg": "VT-HUH",
+     "seats": "13"
+    }
+   ]
+  },
+  {
+   "sno": 56,
+   "name": "India Flysafe Aviation Ltd.",
+   "city": "Delhi",
+   "aop": "#09/2004",
+   "valid": "14.12.2028",
+   "declared": "6",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "PILATUS PC-12/47E",
+     "reg": "VT-JSC",
+     "seats": "8"
+    },
+    {
+     "kind": "FW",
+     "model": "EMBRAER EMB-135LR",
+     "reg": "VT-JSI",
+     "seats": "37"
+    },
+    {
+     "kind": "RW",
+     "model": "AW-139 AGUSTA",
+     "reg": "VT-JSA",
+     "seats": "12"
+    },
+    {
+     "kind": "RW",
+     "model": "GRAND AGUSTA 109S",
+     "reg": "VT-JSF",
+     "seats": "6"
+    },
+    {
+     "kind": "FW",
+     "model": "BD-100-1A10",
+     "reg": "VT-JSX",
+     "seats": "9"
+    },
+    {
+     "kind": "FW",
+     "model": "PILATUS PC-12/47E",
+     "reg": "VT-JSQ",
+     "seats": "8"
+    }
+   ]
+  },
+  {
+   "sno": 57,
+   "name": "Innxt Aviation Pvt. Ltd.",
+   "city": "Pune",
+   "aop": "#03/2021",
+   "valid": "25.10.2026",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "EC135P2+",
+     "reg": "VT-MHM",
+     "seats": "5"
+    }
+   ]
+  },
+  {
+   "sno": 58,
+   "name": "IRM Pvt. Ltd.",
+   "city": "Ahmedabad",
+   "aop": "#09/2014",
+   "valid": "03.07.2028",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "GULFSTREAM GV-SP (G550)",
+     "reg": "VT-RIM",
+     "seats": "8"
+    }
+   ]
+  },
+  {
+   "sno": 59,
+   "name": "Jet Serve Aviation Pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#02/2017",
+   "valid": "09.02.2029",
+   "declared": "10",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "ROBINSON-44 RAVEN II",
+     "reg": "VT-ZJM",
+     "seats": "3/Aerial Work"
+    },
+    {
+     "kind": "RW",
+     "model": "ROBINSON-44 RAVEN II",
+     "reg": "VT-OJS",
+     "seats": "3"
+    },
+    {
+     "kind": "RW",
+     "model": "ROBINSON-44 RAVEN II",
+     "reg": "VT-HNC",
+     "seats": "3"
+    },
+    {
+     "kind": "FW",
+     "model": "King Air C90A",
+     "reg": "VT-JIL",
+     "seats": "6"
+    },
+    {
+     "kind": "FW",
+     "model": "King Air C90A",
+     "reg": "VT-EMJ",
+     "seats": "6"
+    },
+    {
+     "kind": "FW",
+     "model": "Super King Air B-200",
+     "reg": "VT-RSN",
+     "seats": "8"
+    },
+    {
+     "kind": "FW",
+     "model": "King Air C90A",
+     "reg": "VT-DEJ",
+     "seats": "6"
+    },
+    {
+     "kind": "FW",
+     "model": "King Air C90A",
+     "reg": "VT-JPK",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "A109E",
+     "reg": "VT-OSR",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "A109E",
+     "reg": "VT-OSN",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 60,
+   "name": "Jhankar Aviation Pvt. Ltd.",
+   "city": "Gurugram",
+   "aop": "#13/2022",
+   "valid": "10.11.2027",
+   "declared": "3",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "King Air C90A",
+     "reg": "VT-TIS",
+     "seats": "6"
+    },
+    {
+     "kind": "FW",
+     "model": "BEECHCRAFT 300LW",
+     "reg": "VT-UPA",
+     "seats": "9"
+    },
+    {
+     "kind": "FW",
+     "model": "King Air C90A",
+     "reg": "VT-VBS",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 61,
+   "name": "Joyalukkas India Limited",
+   "city": "Kerala",
+   "aop": "#05/2025",
+   "valid": "26.02.2030",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "AW109SP",
+     "reg": "VT-JJL",
+     "seats": "7"
+    }
+   ]
+  },
+  {
+   "sno": 62,
+   "name": "Kainos Aviation Private Limited",
+   "city": "Gurugram",
+   "aop": "#01/2024",
+   "valid": "04.01.2029",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "SIKORSKY S-76C++",
+     "reg": "VT-KHA",
+     "seats": "8"
+    }
+   ]
+  },
+  {
+   "sno": 63,
+   "name": "Kairamya Aviation Pvt. Ltd.",
+   "city": "Ahmedabad",
+   "aop": "#19/2025",
+   "valid": "24.11.2029",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "CITATION 525A",
+     "reg": "VT-BIP",
+     "seats": "7"
+    },
+    {
+     "kind": "FW",
+     "model": "G-150",
+     "reg": "VT-AST",
+     "seats": "8"
+    }
+   ]
+  },
+  {
+   "sno": 64,
+   "name": "Kakini Enterprises Pvt. Ltd.",
+   "city": "Hyderabad",
+   "aop": "#06/2023",
+   "valid": "05.06.2028",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "Citation 525A",
+     "reg": "VT-PSB",
+     "seats": "8"
+    }
+   ]
+  },
+  {
+   "sno": 65,
+   "name": "KAN Aerofoil Private Limited",
+   "city": "Ahmedabad",
+   "aop": "#09/2024",
+   "valid": "16.10.2029",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "BELL-407GX",
+     "reg": "VT-NJP",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL-407GX",
+     "reg": "VT-PNJ",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 66,
+   "name": "Karnavati Aviation Pvt. Ltd.",
+   "city": "Ahmedabad",
+   "aop": "#22/2008",
+   "valid": "06.08.2028",
+   "declared": "10",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "EMB-135BJ LEGACY 650",
+     "reg": "VT-AML",
+     "seats": "13"
+    },
+    {
+     "kind": "FW",
+     "model": "Bombardier BD-700-1A10",
+     "reg": "VT-AGL",
+     "seats": "13"
+    },
+    {
+     "kind": "FW",
+     "model": "EMB-135BJ",
+     "reg": "VT-AHM",
+     "seats": "13"
+    },
+    {
+     "kind": "FW",
+     "model": "EMB-135BJ",
+     "reg": "VT-ARL",
+     "seats": "13"
+    },
+    {
+     "kind": "FW",
+     "model": "PC-24",
+     "reg": "VT-AQL",
+     "seats": "6"
+    },
+    {
+     "kind": "FW",
+     "model": "PC-24",
+     "reg": "VT-KGA",
+     "seats": "6"
+    },
+    {
+     "kind": "FW",
+     "model": "PC-24",
+     "reg": "VT-PGA",
+     "seats": "6"
+    },
+    {
+     "kind": "FW",
+     "model": "PC-24",
+     "reg": "VT-AFL",
+     "seats": "6"
+    },
+    {
+     "kind": "FW",
+     "model": "PC-24",
+     "reg": "VT-APV",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "AW169",
+     "reg": "VT-GKA",
+     "seats": "7"
+    }
+   ]
+  },
+  {
+   "sno": 67,
+   "name": "Kelachandra Logistics Pvt. Ltd.",
+   "city": "Bengaluru",
+   "aop": "#04/2019",
+   "valid": "13.06.2029",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "BELL429",
+     "reg": "VT-HKB",
+     "seats": "5"
+    },
+    {
+     "kind": "FW",
+     "model": "EMBRAER EMB-500 (Phenom100)",
+     "reg": "VT-AVS",
+     "seats": "4"
+    }
+   ]
+  },
+  {
+   "sno": 68,
+   "name": "Kestrel Aviation Pvt. Ltd.",
+   "city": "Mumbai",
+   "aop": "#14/2008",
+   "valid": "08.05.2029",
+   "declared": "3",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "AGUSTA A119 KOALA",
+     "reg": "VT-CLN",
+     "seats": "7"
+    },
+    {
+     "kind": "RW",
+     "model": "AS350B3E",
+     "reg": "VT-VSB",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "AS350B3E",
+     "reg": "VT-VSK",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 69,
+   "name": "Khazana Jewellery Pvt. Ltd.",
+   "city": "Chennai",
+   "aop": "#03/2017",
+   "valid": "28.03.2029",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "GULFSTREAM G150",
+     "reg": "VT-KZN",
+     "seats": "8"
+    }
+   ]
+  },
+  {
+   "sno": 70,
+   "name": "Kingscraft Aviation Private Limited",
+   "city": "Pune",
+   "aop": "#01/2026",
+   "valid": "04.01.2031",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "HAWKER 900XP",
+     "reg": "VT-KGV",
+     "seats": "7"
+    }
+   ]
+  },
+  {
+   "sno": 71,
+   "name": "Kyathi Climate Modification Consultants LLP",
+   "city": "Bengaluru",
+   "aop": "#04/2020",
+   "valid": "27.12.2030",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "Superking Air B200",
+     "reg": "VT-KCM",
+     "seats": "7/Aerial Work"
+    },
+    {
+     "kind": "RW",
+     "model": "Agusta A109E",
+     "reg": "VT-AUS",
+     "seats": "5"
+    }
+   ]
+  },
+  {
+   "sno": 72,
+   "name": "Lakeworkoffice Club Pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#10/2025",
+   "valid": "09.09.2030",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "A109E",
+     "reg": "VT-JPA",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "A109E",
+     "reg": "VT-OSC",
+     "seats": "7"
+    }
+   ]
+  },
+  {
+   "sno": 73,
+   "name": "LCL Aviation Pvt. Ltd. (ECOJET)",
+   "city": "Noida",
+   "aop": "#09/2022",
+   "valid": "27.09.2027",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "Beechcraft Premier 1A",
+     "reg": "VT-ANF",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 74,
+   "name": "LMCS Infra Holdings Pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#05/2016",
+   "valid": "25.10.2028",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "EC 135 P2+",
+     "reg": "VT-PEC",
+     "seats": "5"
+    }
+   ]
+  },
+  {
+   "sno": 75,
+   "name": "L & T Aviation Services Pvt. Ltd.",
+   "city": "Mumbai",
+   "aop": "#06/2010",
+   "valid": "02.11.2028",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "HAWKER HS 125 900XP",
+     "reg": "VT-LTC",
+     "seats": "9"
+    }
+   ]
+  },
+  {
+   "sno": 76,
+   "name": "MAB Aviation Pvt. Ltd.",
+   "city": "Mumbai",
+   "aop": "#06/2016",
+   "valid": "22.12.2028",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "Learjet 60XR",
+     "reg": "VT-MAM",
+     "seats": "8"
+    }
+   ]
+  },
+  {
+   "sno": 77,
+   "name": "Maharaja Aviation Pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#07/2015",
+   "valid": "26.08.2027",
+   "declared": "3",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "ROBINSON R66",
+     "reg": "VT-MAL",
+     "seats": "4"
+    },
+    {
+     "kind": "RW",
+     "model": "ROBINSON R44",
+     "reg": "VT-SDD",
+     "seats": "3"
+    },
+    {
+     "kind": "RW",
+     "model": "ROBINSON R66",
+     "reg": "VT-NDN",
+     "seats": "4"
+    }
+   ]
+  },
+  {
+   "sno": 78,
+   "name": "Mahindra Airways Ltd.",
+   "city": "Mumbai",
+   "aop": "#10/2024",
+   "valid": "27.10.2029",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "Bombardier BD-100-1A10",
+     "reg": "VT-MAY",
+     "seats": "9"
+    }
+   ]
+  },
+  {
+   "sno": 79,
+   "name": "Malhotra Helikopters Pvt. Ltd.",
+   "city": "Mumbai",
+   "aop": "#01/2023",
+   "valid": "11.01.2028",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "BELL 206 L3",
+     "reg": "VT-RLB",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL 206 L4",
+     "reg": "VT-JVS",
+     "seats": "5"
+    }
+   ]
+  },
+  {
+   "sno": 80,
+   "name": "Mandke and Mandke Infrastructure Pvt. Ltd.",
+   "city": "Pune",
+   "aop": "#01/2015",
+   "valid": "12.02.2029",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "ROBINSON R66",
+     "reg": "VT-MAN",
+     "seats": "4"
+    }
+   ]
+  },
+  {
+   "sno": 81,
+   "name": "Media House DND Private Limited",
+   "city": "Bengaluru",
+   "aop": "#05/2024",
+   "valid": "27.02.2029",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "EC-130T2",
+     "reg": "VT-MNK",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 82,
+   "name": "Modifi Aviations Pvt. Ltd.",
+   "city": "West Bengal",
+   "aop": "#02/2026",
+   "valid": "10.02.2031",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "FALCON 2000",
+     "reg": "VT-HGL",
+     "seats": "10"
+    }
+   ]
+  },
+  {
+   "sno": 83,
+   "name": "MSPL Ltd.",
+   "city": "Mumbai",
+   "aop": "#02/2009",
+   "valid": "11.02.2027",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "P-180 AVANTI II",
+     "reg": "VT-SNB",
+     "seats": "8"
+    }
+   ]
+  },
+  {
+   "sno": 84,
+   "name": "Mytri Aviation Pvt. Ltd.",
+   "city": "Hyderabad",
+   "aop": "#01/2018",
+   "valid": "02.07.2028",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "EMBRAER 135BJ",
+     "reg": "VT-PVK",
+     "seats": "13"
+    },
+    {
+     "kind": "FW",
+     "model": "EMBRAER 190-100ECJ (Lineage 1000)",
+     "reg": "VT-PRM",
+     "seats": "19"
+    }
+   ]
+  },
+  {
+   "sno": 85,
+   "name": "Navdurga Aviation Pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#15/2022",
+   "valid": "27.12.2027",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "CESSNA CARAVAN 208B",
+     "reg": "VT-AHB",
+     "seats": "8"
+    },
+    {
+     "kind": "FW",
+     "model": "CESSNA CITATION 560XL",
+     "reg": "VT-CSP",
+     "seats": "8"
+    }
+   ]
+  },
+  {
+   "sno": 86,
+   "name": "NIBE AERONAUTICS LIMITED",
+   "city": "Pune",
+   "aop": "#06/2025",
+   "valid": "27.05.2029",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "BEECHCRAFT PREMIER 1A",
+     "reg": "VT-VRL",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 87,
+   "name": "Niraant Aviation Pvt. Ltd.",
+   "city": "Mumbai",
+   "aop": "#12/2025",
+   "valid": "10.09.2030",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "BELL 429",
+     "reg": "VT-KTK",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 88,
+   "name": "OSS Air Management Pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#02/2006",
+   "valid": "03.04.2029",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "AGUSTA A109SP",
+     "reg": "VT-OSH",
+     "seats": "7"
+    }
+   ]
+  },
+  {
+   "sno": 89,
+   "name": "Pawan Hans Ltd.",
+   "city": "Noida",
+   "aop": "#02/1998",
+   "valid": "14.03.2029",
+   "declared": "36",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "DAUPHIN 2",
+     "reg": "VT-ELE",
+     "seats": "13"
+    },
+    {
+     "kind": "RW",
+     "model": "DAUPHIN 2",
+     "reg": "VT-ELI",
+     "seats": "13"
+    },
+    {
+     "kind": "RW",
+     "model": "DAUPHIN 2",
+     "reg": "VT-ELL",
+     "seats": "13"
+    },
+    {
+     "kind": "RW",
+     "model": "DAUPHIN 2",
+     "reg": "VT-ELN",
+     "seats": "13"
+    },
+    {
+     "kind": "RW",
+     "model": "DAUPHIN 2",
+     "reg": "VT-ELT",
+     "seats": "13"
+    },
+    {
+     "kind": "RW",
+     "model": "DAUPHIN 2",
+     "reg": "VT-ENW",
+     "seats": "11"
+    },
+    {
+     "kind": "RW",
+     "model": "DAUPHIN 2",
+     "reg": "VT-ENZ",
+     "seats": "8"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL 206 L4",
+     "reg": "VT-PHA",
+     "seats": "7"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL 206 L4",
+     "reg": "VT-PHE",
+     "seats": "7"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL 407",
+     "reg": "VT-PHI",
+     "seats": "7"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL 407",
+     "reg": "VT-PHN",
+     "seats": "7"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL 407",
+     "reg": "VT-PHQ",
+     "seats": "7"
+    },
+    {
+     "kind": "RW",
+     "model": "DAUPHIN AS 365 N3",
+     "reg": "VT-PHJ",
+     "seats": "13"
+    },
+    {
+     "kind": "RW",
+     "model": "DAUPHIN AS 365 N3",
+     "reg": "VT-PHL",
+     "seats": "13"
+    },
+    {
+     "kind": "RW",
+     "model": "DAUPHIN AS 365 N3",
+     "reg": "VT-PHM",
+     "seats": "13"
+    },
+    {
+     "kind": "RW",
+     "model": "DAUPHIN AS 365 N3",
+     "reg": "VT-PHR",
+     "seats": "11"
+    },
+    {
+     "kind": "RW",
+     "model": "DAUPHIN AS 365 N3",
+     "reg": "VT-PHS",
+     "seats": "11"
+    },
+    {
+     "kind": "RW",
+     "model": "DAUPHIN AS 365 N3",
+     "reg": "VT-PHW",
+     "seats": "12"
+    },
+    {
+     "kind": "RW",
+     "model": "DAUPHIN AS 365 N3",
+     "reg": "VT-PHX",
+     "seats": "12"
+    },
+    {
+     "kind": "RW",
+     "model": "DAUPHIN AS 365 N3",
+     "reg": "VT-PHY",
+     "seats": "12"
+    },
+    {
+     "kind": "RW",
+     "model": "DAUPHIN AS 365 N3",
+     "reg": "VT-PHZ",
+     "seats": "12"
+    },
+    {
+     "kind": "RW",
+     "model": "DAUPHIN AS 365 N3",
+     "reg": "VT-PWC",
+     "seats": "12"
+    },
+    {
+     "kind": "RW",
+     "model": "DAUPHIN AS 365 N3",
+     "reg": "VT-PWB",
+     "seats": "12"
+    },
+    {
+     "kind": "RW",
+     "model": "DAUPHIN AS 365 N3",
+     "reg": "VT-PWD",
+     "seats": "12"
+    },
+    {
+     "kind": "RW",
+     "model": "DAUPHIN AS 365 N3",
+     "reg": "VT-PWE",
+     "seats": "12"
+    },
+    {
+     "kind": "RW",
+     "model": "ECUREUIL AS 350 B3",
+     "reg": "VT-PHV",
+     "seats": "5"
+    },
+    {
+     "kind": "RW",
+     "model": "ECUREUIL AS 350 B3",
+     "reg": "VT-PHU",
+     "seats": "5"
+    },
+    {
+     "kind": "RW",
+     "model": "MI-172",
+     "reg": "VT-PHG",
+     "seats": "26"
+    },
+    {
+     "kind": "RW",
+     "model": "SIKORSKY S-76D",
+     "reg": "VT-PWM",
+     "seats": "12"
+    },
+    {
+     "kind": "RW",
+     "model": "SIKORSKY S-76D",
+     "reg": "VT-PWJ",
+     "seats": "12"
+    },
+    {
+     "kind": "RW",
+     "model": "SIKORSKY S-76D",
+     "reg": "VT-PWK",
+     "seats": "12"
+    },
+    {
+     "kind": "RW",
+     "model": "SA 365N",
+     "reg": "VT-ELD",
+     "seats": "11"
+    },
+    {
+     "kind": "RW",
+     "model": "SA 365N",
+     "reg": "VT-ELG",
+     "seats": "11"
+    },
+    {
+     "kind": "RW",
+     "model": "SA 365N",
+     "reg": "VT-ELS",
+     "seats": "11"
+    },
+    {
+     "kind": "RW",
+     "model": "ALH (DHRUV)",
+     "reg": "VT-HAU",
+     "seats": "9"
+    },
+    {
+     "kind": "RW",
+     "model": "SIKORSKY S-76D",
+     "reg": "VT-PWL",
+     "seats": "12"
+    }
+   ]
+  },
+  {
+   "sno": 90,
+   "name": "PILGRIMAGE AVIATION PRIVATE LIMITED",
+   "city": "Delhi",
+   "aop": "#08/2025",
+   "valid": "04.06.2030",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "AS350B3E",
+     "reg": "VT-NSS",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 91,
+   "name": "Pioneer Flying Academy Pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#09/2015",
+   "valid": "13.10.2027",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "CESSNA 172S",
+     "reg": "VT-PFA",
+     "seats": "3/Aerial Work"
+    },
+    {
+     "kind": "FW",
+     "model": "CESSNA 172S",
+     "reg": "VT-AGH",
+     "seats": "3/Aerial Work"
+    }
+   ]
+  },
+  {
+   "sno": 92,
+   "name": "Pinnacle Air Pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#25/2008",
+   "valid": "02.10.2028",
+   "declared": "7",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "BELL-407",
+     "reg": "VT-PSA",
+     "seats": "6"
+    },
+    {
+     "kind": "FW",
+     "model": "P68 Obeserver-2",
+     "reg": "VT-TAA",
+     "seats": "4"
+    },
+    {
+     "kind": "FW",
+     "model": "King Air C90B",
+     "reg": "VT-NKF",
+     "seats": "6"
+    },
+    {
+     "kind": "FW",
+     "model": "Beechcraft Premier 1A-390",
+     "reg": "VT-MEL",
+     "seats": "6"
+    },
+    {
+     "kind": "FW",
+     "model": "King Air C90GTI",
+     "reg": "VT-KJS",
+     "seats": "6"
+    },
+    {
+     "kind": "FW",
+     "model": "G-200",
+     "reg": "VT-VEL",
+     "seats": "9"
+    },
+    {
+     "kind": "RW",
+     "model": "AS350B2",
+     "reg": "VT-KBS",
+     "seats": "3"
+    }
+   ]
+  },
+  {
+   "sno": 93,
+   "name": "Poonawalla Aviation Pvt. Ltd.",
+   "city": "Pune",
+   "aop": "#03/2006",
+   "valid": "25.06.2029",
+   "declared": "6",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "H145",
+     "reg": "VT-NAP",
+     "seats": "7"
+    },
+    {
+     "kind": "FW",
+     "model": "Bombardier Global 6000",
+     "reg": "VT-CDP",
+     "seats": "13"
+    },
+    {
+     "kind": "FW",
+     "model": "Bombardier Global 6500",
+     "reg": "VT-NAD",
+     "seats": "13"
+    },
+    {
+     "kind": "FW",
+     "model": "Bombardier Global 6500",
+     "reg": "VT-CDC",
+     "seats": "13"
+    },
+    {
+     "kind": "RW",
+     "model": "H160-B",
+     "reg": "VT-CND",
+     "seats": "8"
+    },
+    {
+     "kind": "FW",
+     "model": "Bombardier Global 6500",
+     "reg": "VT-CCA",
+     "seats": "13"
+    }
+   ]
+  },
+  {
+   "sno": 94,
+   "name": "Pradhaan Air Express Pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#08/2022",
+   "valid": "21.09.2027",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "A320-232",
+     "reg": "VT-PNS",
+     "seats": "Cargo"
+    }
+   ]
+  },
+  {
+   "sno": 95,
+   "name": "Property Ventures (India) Pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#04/2022",
+   "valid": "18.04.2027",
+   "declared": "4",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "AW169",
+     "reg": "VT-WCL",
+     "seats": "7"
+    },
+    {
+     "kind": "FW",
+     "model": "FALCON 2000EX",
+     "reg": "VT-RKP",
+     "seats": "10"
+    },
+    {
+     "kind": "RW",
+     "model": "EC-130T2",
+     "reg": "VT-RKV",
+     "seats": "6"
+    },
+    {
+     "kind": "FW",
+     "model": "BEECH SUPER KING AIR 250 B- 200GT",
+     "reg": "VT-RKS",
+     "seats": "7"
+    }
+   ]
+  },
+  {
+   "sno": 96,
+   "name": "Rajas Aerosports and Adventures Private Limited (Air Safari)",
+   "city": "Delhi",
+   "aop": "#02/2024",
+   "valid": "31.01.2029",
+   "declared": "7",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "Cessna Citation 560XL",
+     "reg": "VT-RJL",
+     "seats": "9"
+    },
+    {
+     "kind": "RW",
+     "model": "AS350B3",
+     "reg": "VT-RJF",
+     "seats": "5"
+    },
+    {
+     "kind": "RW",
+     "model": "AS350B3",
+     "reg": "VT-RJG",
+     "seats": "5"
+    },
+    {
+     "kind": "RW",
+     "model": "AS350B3",
+     "reg": "VT-RJH",
+     "seats": "5"
+    },
+    {
+     "kind": "B",
+     "model": "ULTRAMAGIC M-105",
+     "reg": "VT-RAG",
+     "seats": "4"
+    },
+    {
+     "kind": "B",
+     "model": "ULTRAMAGIC N-210",
+     "reg": "VT-RBO",
+     "seats": "10"
+    },
+    {
+     "kind": "RW",
+     "model": "AS350B3",
+     "reg": "VT-RJM",
+     "seats": "5"
+    }
+   ]
+  },
+  {
+   "sno": 97,
+   "name": "RAJHANS INFRACON (INDIA) PRIVATE LIMITED",
+   "city": "Surat",
+   "aop": "#03/2024",
+   "valid": "08.02.2029",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "Beech SKA B200GT",
+     "reg": "VT-DJB",
+     "seats": "7"
+    }
+   ]
+  },
+  {
+   "sno": 98,
+   "name": "Raymond Ltd.",
+   "city": "",
+   "aop": "#05/1996",
+   "valid": "28.01.2029",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "AGUSTA A109S",
+     "reg": "VT-GHS",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 99,
+   "name": "Redbird Airways Pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#01/2020",
+   "valid": "12.08.2030",
+   "declared": "6",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "KINGAIR C90B",
+     "reg": "VT-RAM",
+     "seats": "6"
+    },
+    {
+     "kind": "FW",
+     "model": "SKA B200",
+     "reg": "VT-EHB",
+     "seats": "8"
+    },
+    {
+     "kind": "FW",
+     "model": "King Air C90A",
+     "reg": "VT-EJZ",
+     "seats": "6"
+    },
+    {
+     "kind": "FW",
+     "model": "Cessna Citation III (650)",
+     "reg": "VT-IPA",
+     "seats": "8"
+    },
+    {
+     "kind": "FW",
+     "model": "CESSNA CITATION 560XL",
+     "reg": "VT-BSL",
+     "seats": "8"
+    },
+    {
+     "kind": "FW",
+     "model": "King Air C90A",
+     "reg": "VT-EQN",
+     "seats": "5"
+    }
+   ]
+  },
+  {
+   "sno": 100,
+   "name": "Redbird Flight Training Academy Private Limited",
+   "city": "Delhi",
+   "aop": "#10/2022",
+   "valid": "06.10.2027",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "TECNAM P2006T",
+     "reg": "VT-RBB",
+     "seats": "3"
+    }
+   ]
+  },
+  {
+   "sno": 101,
+   "name": "Reliance Transport & Travels Pvt. Ltd.",
+   "city": "Mumbai",
+   "aop": "#03/2000",
+   "valid": "27.09.2028",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "EMB - 135BJ",
+     "reg": "VT-OMM",
+     "seats": "13"
+    },
+    {
+     "kind": "FW",
+     "model": "FALCON2000",
+     "reg": "VT-AAT",
+     "seats": "10"
+    }
+   ]
+  },
+  {
+   "sno": 102,
+   "name": "Reliance Commercial Dealers Ltd.",
+   "city": "Mumbai",
+   "aop": "#02/2008",
+   "valid": "14.01.2029",
+   "declared": "15",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "A319-115 CJ",
+     "reg": "VT-IAH",
+     "seats": "19"
+    },
+    {
+     "kind": "FW",
+     "model": "FALCON 900EX",
+     "reg": "VT-AKU",
+     "seats": "14"
+    },
+    {
+     "kind": "RW",
+     "model": "SIKORSKY S-76 C++",
+     "reg": "VT-NMA",
+     "seats": "5"
+    },
+    {
+     "kind": "RW",
+     "model": "SIKORSKY S-76 C++",
+     "reg": "VT-NIT",
+     "seats": "8"
+    },
+    {
+     "kind": "FW",
+     "model": "GLOBAL EXPRESS BD-700",
+     "reg": "VT-DHA",
+     "seats": "1 6"
+    },
+    {
+     "kind": "FW",
+     "model": "GLOBAL EXPRESS BD-700",
+     "reg": "VT-HMA",
+     "seats": "14"
+    },
+    {
+     "kind": "FW",
+     "model": "GLOBAL 6000 BD-700- 1A10",
+     "reg": "VT-AHI",
+     "seats": "14"
+    },
+    {
+     "kind": "RW",
+     "model": "AS 365 N3",
+     "reg": "VT-JIO",
+     "seats": "5"
+    },
+    {
+     "kind": "FW",
+     "model": "EMBRAER 135ER",
+     "reg": "VT-JMN",
+     "seats": "37"
+    },
+    {
+     "kind": "FW",
+     "model": "Global 7500 BD700-2A-12",
+     "reg": "VT-ASR",
+     "seats": "14"
+    },
+    {
+     "kind": "FW",
+     "model": "Global 7500 BD700-2A-12",
+     "reg": "VT-PRI",
+     "seats": "15"
+    },
+    {
+     "kind": "FW",
+     "model": "B737-9",
+     "reg": "VT-AKV",
+     "seats": "19"
+    },
+    {
+     "kind": "FW",
+     "model": "EMBRAER ERJ 170-200 LR",
+     "reg": "VT-JMR",
+     "seats": "60"
+    },
+    {
+     "kind": "RW",
+     "model": "H160-B",
+     "reg": "VT-PVS",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "H160-B",
+     "reg": "VT-AKI",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 103,
+   "name": "Rithwik Green Power and Aviation Pvt. Ltd.",
+   "city": "Hyderabad",
+   "aop": "#12/2022",
+   "valid": "25.10.2027",
+   "declared": "4",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "King Air B200 GT",
+     "reg": "VT-VIN",
+     "seats": "8"
+    },
+    {
+     "kind": "FW",
+     "model": "EMB-135 (LEGACY 600)",
+     "reg": "VT-VIK",
+     "seats": "13"
+    },
+    {
+     "kind": "FW",
+     "model": "CITATION 525A CJ2+",
+     "reg": "VT-SRE",
+     "seats": "7"
+    },
+    {
+     "kind": "FW",
+     "model": "CITATION 525A CJ2+",
+     "reg": "VT-TVM",
+     "seats": "7"
+    }
+   ]
+  },
+  {
+   "sno": 104,
+   "name": "RPS Aviation Pvt. Ltd.",
+   "city": "Kolkata",
+   "aop": "#02/2022",
+   "valid": "10.04.2027",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "FALCON 2000",
+     "reg": "VT-TBT",
+     "seats": "8"
+    }
+   ]
+  },
+  {
+   "sno": 105,
+   "name": "RPSG Resources Pvt Ltd.",
+   "city": "Kolkata",
+   "aop": "#08/2014",
+   "valid": "25.06.2028",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "Bombardier Global 5000",
+     "reg": "VT-SHG",
+     "seats": "13"
+    },
+    {
+     "kind": "FW",
+     "model": "BD-700-2A12(G7500)",
+     "reg": "VT-MIR",
+     "seats": "16"
+    }
+   ]
+  },
+  {
+   "sno": 106,
+   "name": "Saarthi Airways Pvt. Ltd.",
+   "city": "Jaipur",
+   "aop": "#09/2010",
+   "valid": "13.12.2028",
+   "declared": "4",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "SUPER KING AIR B200",
+     "reg": "VT-MPG",
+     "seats": "7"
+    },
+    {
+     "kind": "FW",
+     "model": "FALCON 2000EX",
+     "reg": "VT-RSG",
+     "seats": "9"
+    },
+    {
+     "kind": "FW",
+     "model": "Twin Otter DHC-6-300",
+     "reg": "VT-ELX",
+     "seats": "4/Aerial Work"
+    },
+    {
+     "kind": "RW",
+     "model": "AGUSTA A109S",
+     "reg": "VT-LJH",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 107,
+   "name": "Saffron Strokes Private Limited",
+   "city": "Delhi",
+   "aop": "#04/2024",
+   "valid": "18.02.2029",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "BEECHCRAFT PREMIER 1A-390",
+     "reg": "VT-PMO",
+     "seats": "6"
+    },
+    {
+     "kind": "FW",
+     "model": "BEECHCRAFT PREMIER 1A-390",
+     "reg": "VT-SRK",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 108,
+   "name": "Sai Construction Pvt. Ltd.",
+   "city": "Mumbai",
+   "aop": "#04/2025",
+   "valid": "18.02.2030",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "Hawker800XP",
+     "reg": "VT-VAP",
+     "seats": "8"
+    }
+   ]
+  },
+  {
+   "sno": 109,
+   "name": "Sapphire Airlines Pvt. Ltd.",
+   "city": "Mumbai",
+   "aop": "#03/2022",
+   "valid": "12.04.2027",
+   "declared": "3",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "Leonardo AW169",
+     "reg": "VT-JSD",
+     "seats": "6"
+    },
+    {
+     "kind": "FW",
+     "model": "BD-100-1A10 (Challenger3500)",
+     "reg": "VT-JST",
+     "seats": "10"
+    },
+    {
+     "kind": "FW",
+     "model": "BD-700-2A12 (G7500)",
+     "reg": "VT-JSJ",
+     "seats": "15"
+    }
+   ]
+  },
+  {
+   "sno": 110,
+   "name": "Shraddha Energy and Infraprojects Private Limited",
+   "city": "Pune",
+   "aop": "#12/2023",
+   "valid": "06.12.2028",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "AS350B3",
+     "reg": "VT-SBJ",
+     "seats": "5"
+    }
+   ]
+  },
+  {
+   "sno": 111,
+   "name": "Shivan Aadithya Air Services Pvt. Ltd.",
+   "city": "Coimbatore",
+   "aop": "#05/2022",
+   "valid": "20.07.2027",
+   "declared": "5",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "A109S",
+     "reg": "VT-BST",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "A109S",
+     "reg": "VT-RKR",
+     "seats": "7"
+    },
+    {
+     "kind": "RW",
+     "model": "A109S",
+     "reg": "VT-BGM",
+     "seats": "7"
+    },
+    {
+     "kind": "FW",
+     "model": "BEECHCRAFT PREMIER 1A-390",
+     "reg": "VT-RRR",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "H160-B",
+     "reg": "VT-BOB",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 112,
+   "name": "Simm Samm Airways Pvt. Ltd.",
+   "city": "Mumbai",
+   "aop": "#14/2009",
+   "valid": "08.04.2029",
+   "declared": "3",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "HAWKER BEECHCRAFT (PREMIER 1A)",
+     "reg": "VT-SSF",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "SIKORSKY S-76C++",
+     "reg": "VT-SSO",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "SIKORSKY S-76C++",
+     "reg": "VT-ASO",
+     "seats": "12"
+    }
+   ]
+  },
+  {
+   "sno": 113,
+   "name": "Span Air pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#06/1995",
+   "valid": "23.11.2028",
+   "declared": "4",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "B 200 GT",
+     "reg": "VT-SMR",
+     "seats": "9"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL - 429",
+     "reg": "VT-JSH",
+     "seats": "6"
+    },
+    {
+     "kind": "FW",
+     "model": "HAWKER 900XP",
+     "reg": "VT-PRY",
+     "seats": "9"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL - 429",
+     "reg": "VT-SMK",
+     "seats": "5"
+    }
+   ]
+  },
+  {
+   "sno": 114,
+   "name": "Skyblue Aviation Services Pvt. Ltd.",
+   "city": "Hyderabad",
+   "aop": "#13/2024",
+   "valid": "19.12.2029",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "Falcon900EX",
+     "reg": "VT-KSE",
+     "seats": "14"
+    }
+   ]
+  },
+  {
+   "sno": 115,
+   "name": "Sky One Airways Pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#04/2013",
+   "valid": "25.12.2027",
+   "declared": "5",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "MI-172",
+     "reg": "VT-JJA",
+     "seats": "2 6"
+    },
+    {
+     "kind": "RW",
+     "model": "MI-172",
+     "reg": "VT-SKB",
+     "seats": "26"
+    },
+    {
+     "kind": "RW",
+     "model": "MI-172",
+     "reg": "VT-MAE",
+     "seats": "26"
+    },
+    {
+     "kind": "RW",
+     "model": "MI-171A2",
+     "reg": "VT-SKH",
+     "seats": "19"
+    },
+    {
+     "kind": "RW",
+     "model": "MI-172",
+     "reg": "VT-SKE",
+     "seats": "26"
+    }
+   ]
+  },
+  {
+   "sno": 116,
+   "name": "SkyJets International Pvt. Ltd.",
+   "city": "Hyderabad",
+   "aop": "#05/2015",
+   "valid": "02.07.2029",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "BOMBARDIER CL-600-2B16 (604 VARIANT)",
+     "reg": "VT-AUV",
+     "seats": "9"
+    },
+    {
+     "kind": "FW",
+     "model": "CESSNA CITATION CJ1+525",
+     "reg": "VT-NAB",
+     "seats": "5"
+    }
+   ]
+  },
+  {
+   "sno": 117,
+   "name": "Smart Wings Aviation Pvt. Ltd.",
+   "city": "Bengaluru",
+   "aop": "#09/2025",
+   "valid": "23.07.2030",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "EC130T2",
+     "reg": "VT-RPB",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 118,
+   "name": "Sparzana Aviation Pvt. Ltd.",
+   "city": "Chennai",
+   "aop": "#06/2022",
+   "valid": "08.09.2027",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "Hawker900XP",
+     "reg": "VT-RFX",
+     "seats": "8"
+    }
+   ]
+  },
+  {
+   "sno": 119,
+   "name": "SKB Infracons Pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#05/2007",
+   "valid": "20.06.2029",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "KING AIR C 90A",
+     "reg": "VT-HYA",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 120,
+   "name": "Sobha Puravankara Aviation Pvt. Ltd.",
+   "city": "Bengaluru",
+   "aop": "#03/2012",
+   "valid": "14.03.2028",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "GULFSTREAM G-200",
+     "reg": "VT-SNP",
+     "seats": "9"
+    }
+   ]
+  },
+  {
+   "sno": 121,
+   "name": "Sreeji Aviation Pvt. Ltd.",
+   "city": "Gujarat",
+   "aop": "#02/2023",
+   "valid": "21.02.2028",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "Beech Superking Air B200",
+     "reg": "VT-MPT",
+     "seats": "7"
+    },
+    {
+     "kind": "FW",
+     "model": "Beech Superking Air B200",
+     "reg": "VT-LMW",
+     "seats": "7"
+    }
+   ]
+  },
+  {
+   "sno": 122,
+   "name": "Steamhouse India Ltd.",
+   "city": "Surat",
+   "aop": "#18/2025",
+   "valid": "20.10.2030",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "PA-46-350P",
+     "reg": "VT-SHL",
+     "seats": "4"
+    }
+   ]
+  },
+  {
+   "sno": 123,
+   "name": "Suhan Aviation Pvt. Ltd.",
+   "city": "Mumbai",
+   "aop": "#01/2016",
+   "valid": "14.03.2028",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "S-76C++",
+     "reg": "VT-DBH",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 124,
+   "name": "Syandan Aviation Pvt. Ltd.",
+   "city": "Gurugram",
+   "aop": "#11/2025",
+   "valid": "10.09.2030",
+   "declared": "4",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "A109S",
+     "reg": "VT-HGX",
+     "seats": "7"
+    },
+    {
+     "kind": "RW",
+     "model": "A109E",
+     "reg": "VT-HAX",
+     "seats": "7"
+    },
+    {
+     "kind": "RW",
+     "model": "EC-130T2",
+     "reg": "VT-HFX",
+     "seats": "7"
+    },
+    {
+     "kind": "RW",
+     "model": "EC-130T2",
+     "reg": "VT-SES",
+     "seats": "7"
+    }
+   ]
+  },
+  {
+   "sno": 125,
+   "name": "TAI Jets Private Limited",
+   "city": "Bengaluru",
+   "aop": "#07/2025",
+   "valid": "01.06.2030",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "EMB-135BJ (LEGACY 650)",
+     "reg": "VT-KJR",
+     "seats": "13"
+    },
+    {
+     "kind": "FW",
+     "model": "EMB-500 (PHENOM 100E)",
+     "reg": "VT-KJK",
+     "seats": "7"
+    }
+   ]
+  },
+  {
+   "sno": 126,
+   "name": "Taj Air Ltd.",
+   "city": "Mumbai",
+   "aop": "#09/1993",
+   "valid": "14.11.2028",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "FALCON 2000 LX",
+     "reg": "VT-TDT",
+     "seats": "9"
+    }
+   ]
+  },
+  {
+   "sno": 127,
+   "name": "Tara Aviation Services Pvt. Ltd.",
+   "city": "Coimbatore",
+   "aop": "#03/2026",
+   "valid": "11.02.2031",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "FALCON 2000",
+     "reg": "VT-TAT",
+     "seats": "8"
+    },
+    {
+     "kind": "FW",
+     "model": "PC-12/47E",
+     "reg": "VT-TKG",
+     "seats": "8"
+    }
+   ]
+  },
+  {
+   "sno": 128,
+   "name": "Target Air Services Pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#14/2023",
+   "valid": "20.12.2028",
+   "declared": "3",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "BEECH SUPER KING AIR B-200GT",
+     "reg": "VT-JPV",
+     "seats": "7"
+    },
+    {
+     "kind": "FW",
+     "model": "HAWKER 400A XP",
+     "reg": "VT-HBX",
+     "seats": "8"
+    },
+    {
+     "kind": "FW",
+     "model": "BEECH SUPER KING AIR B-300 (350)",
+     "reg": "VT-ACD",
+     "seats": "9"
+    }
+   ]
+  },
+  {
+   "sno": 129,
+   "name": "Thumby Aviation Pvt. Ltd.",
+   "city": "",
+   "aop": "#02/2013",
+   "valid": "24.03.2029",
+   "declared": "10",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "BELL 412 EP",
+     "reg": "VT-ASL",
+     "seats": "13"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL 412 EP",
+     "reg": "VT-KNG",
+     "seats": "13"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL 407",
+     "reg": "VT-KSA",
+     "seats": "6/Aerial Work"
+    },
+    {
+     "kind": "RW",
+     "model": "AS350B3E",
+     "reg": "VT-GRA",
+     "seats": "6/Aerial Work"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL 407GXP",
+     "reg": "VT-GRB",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "AS350B3",
+     "reg": "VT-GRC",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL412EP",
+     "reg": "VT-NAV",
+     "seats": "7"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL412EP",
+     "reg": "VT-GRD",
+     "seats": "13"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL407GX",
+     "reg": "VT-NAL",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "EC130-T2",
+     "reg": "VT-SDS",
+     "seats": "7"
+    }
+   ]
+  },
+  {
+   "sno": 130,
+   "name": "Trans Bharat Aviation Pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#01/1991",
+   "valid": "27.02.2029",
+   "declared": "3",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "BELL 407",
+     "reg": "VT-TBC",
+     "seats": "6/Aerial Work"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL 407",
+     "reg": "VT-TBF",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "BELL 407",
+     "reg": "VT-JIB",
+     "seats": "6"
+    }
+   ]
+  },
+  {
+   "sno": 131,
+   "name": "Transworld Jets Pvt Ltd",
+   "city": "Gurugram",
+   "aop": "#07/2024",
+   "valid": "11.07.2029",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "Hawker-4000",
+     "reg": "VT-KVR",
+     "seats": "9"
+    },
+    {
+     "kind": "FW",
+     "model": "FALCON 2000 EX EASY",
+     "reg": "VT-TWJ",
+     "seats": "9"
+    }
+   ]
+  },
+  {
+   "sno": 132,
+   "name": "United Helicharters Pvt. Ltd.",
+   "city": "Mumbai",
+   "aop": "#04/2026",
+   "valid": "19.02.2031",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "AS350B3",
+     "reg": "VT-UHE",
+     "seats": "6"
+    },
+    {
+     "kind": "RW",
+     "model": "EC-130T2",
+     "reg": "VT-HEX",
+     "seats": "7"
+    }
+   ]
+  },
+  {
+   "sno": 133,
+   "name": "Universal Airways Pvt. Ltd.",
+   "city": "Gurugram",
+   "aop": "#04/2006",
+   "valid": "31.07.2028",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "RW",
+     "model": "AW139",
+     "reg": "VT-TWO",
+     "seats": "8"
+    }
+   ]
+  },
+  {
+   "sno": 134,
+   "name": "Vijayanand Travels Private Limited",
+   "city": "Karnataka",
+   "aop": "#09/2023",
+   "valid": "14.09.2028",
+   "declared": "2",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "G-150",
+     "reg": "VT-PLV",
+     "seats": "9"
+    },
+    {
+     "kind": "FW",
+     "model": "FALCON 2000EX",
+     "reg": "VT-PLC",
+     "seats": "10"
+    }
+   ]
+  },
+  {
+   "sno": 135,
+   "name": "Vimaan Airlines Pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#03/2025",
+   "valid": "03.02.2030",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "Hawker 800XP",
+     "reg": "VT-UYK",
+     "seats": "8"
+    }
+   ]
+  },
+  {
+   "sno": 136,
+   "name": "Ventura Airconnect Ltd.",
+   "city": "Surat",
+   "aop": "#08/2011",
+   "valid": "08.06.2028",
+   "declared": "4",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "CESSNA CARAVAN 208B",
+     "reg": "VT-VAK",
+     "seats": "9"
+    },
+    {
+     "kind": "FW",
+     "model": "CESSNA CARAVAN 208B",
+     "reg": "VT-VAM",
+     "seats": "9"
+    },
+    {
+     "kind": "FW",
+     "model": "CESSNA CARAVAN 208B",
+     "reg": "VT-DEV",
+     "seats": "9"
+    },
+    {
+     "kind": "FW",
+     "model": "PC-12/45",
+     "reg": "VT-IOO",
+     "seats": "8"
+    }
+   ]
+  },
+  {
+   "sno": 137,
+   "name": "VSR Ventures Pvt. Ltd.",
+   "city": "Delhi",
+   "aop": "#07/2014",
+   "valid": "20.04.2028",
+   "declared": "17",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "BEECHCRAFT KING AIR B200",
+     "reg": "VT-BAF",
+     "seats": "8"
+    },
+    {
+     "kind": "FW",
+     "model": "PILATUS PC-12",
+     "reg": "VT-MEG",
+     "seats": "8"
+    },
+    {
+     "kind": "FW",
+     "model": "LEARJET-45",
+     "reg": "VT-CRA",
+     "seats": "9"
+    },
+    {
+     "kind": "FW",
+     "model": "BEECHCRAFT KING AIR B200",
+     "reg": "VT-SRC",
+     "seats": "8"
+    },
+    {
+     "kind": "FW",
+     "model": "LEARJET-45 XR",
+     "reg": "VT-TRI",
+     "seats": "9"
+    },
+    {
+     "kind": "FW",
+     "model": "LEARJET-45 XR",
+     "reg": "VT-DBL",
+     "seats": "9"
+    },
+    {
+     "kind": "FW",
+     "model": "LEARJET-40XR",
+     "reg": "VT-VRS",
+     "seats": "7"
+    },
+    {
+     "kind": "FW",
+     "model": "EMB 135BJ (Legacy600)",
+     "reg": "VT-CMR",
+     "seats": "13"
+    },
+    {
+     "kind": "FW",
+     "model": "SKA B200",
+     "reg": "VT-BAS",
+     "seats": "8"
+    },
+    {
+     "kind": "FW",
+     "model": "LEARJET-45 XR",
+     "reg": "VT-VRV",
+     "seats": "9"
+    },
+    {
+     "kind": "FW",
+     "model": "LEARJET-40 XR",
+     "reg": "VT-VRA",
+     "seats": "7"
+    },
+    {
+     "kind": "FW",
+     "model": "LEARJET-45XR",
+     "reg": "VT-VRR",
+     "seats": "9"
+    },
+    {
+     "kind": "FW",
+     "model": "EMB 135 (Legacy600)",
+     "reg": "VT-VSS",
+     "seats": "13"
+    },
+    {
+     "kind": "FW",
+     "model": "BEECHCRAFT KING AIR B200",
+     "reg": "VT-RSM",
+     "seats": "8"
+    },
+    {
+     "kind": "FW",
+     "model": "EMB 135 (Legacy600)",
+     "reg": "VT-NSG",
+     "seats": "13"
+    },
+    {
+     "kind": "FW",
+     "model": "EMB 135 (Legacy600)",
+     "reg": "VT-VSG",
+     "seats": "13"
+    },
+    {
+     "kind": "FW",
+     "model": "EMB 135 BJ (Legacy650)",
+     "reg": "VT-VSV",
+     "seats": "14"
+    }
+   ]
+  },
+  {
+   "sno": 138,
+   "name": "Wings Aviation Pvt. Ltd.",
+   "city": "Hyderabad",
+   "aop": "#05/2026",
+   "valid": "23.03.2031",
+   "declared": "1",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "P68C",
+     "reg": "VT-TLC",
+     "seats": "5"
+    }
+   ]
+  },
+  {
+   "sno": 139,
+   "name": "Zest Aviation Pvt. Ltd.",
+   "city": "Ahmedabad",
+   "aop": "#07/2012",
+   "valid": "27.06.2028",
+   "declared": "4",
+   "aircraft": [
+    {
+     "kind": "FW",
+     "model": "GLOBAL EXPRESS XRS",
+     "reg": "VT-TUS",
+     "seats": "13"
+    },
+    {
+     "kind": "FW",
+     "model": "CHALLENGER 650 CL-600-2B16",
+     "reg": "VT-ZTT",
+     "seats": "10"
+    },
+    {
+     "kind": "FW",
+     "model": "BD-700-1A11 (GLOBAL 5500)",
+     "reg": "VT-ZTP",
+     "seats": "13"
+    },
+    {
+     "kind": "FW",
+     "model": "Cessna Citation 560XL",
+     "reg": "VT-TAZ",
+     "seats": "8"
+    }
+   ]
+  }
+ ]
+}

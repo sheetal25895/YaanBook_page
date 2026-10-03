@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>YaanBook · Charter jets & helicopters across India</title>
+<meta name="description" content="Search every DGCA-licensed private jet and helicopter in India, see the full fare including positioning, and book the aircraft nearest to you.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='23' fill='%230B1220' stroke='%23C9A45C' stroke-width='2'/%3E%3Cg transform='translate(24 24) rotate(40) scale(1.2) translate(-12 -12)'%3E%3Cpath fill='%23C9A45C' d='M12 2 L14 9 L22 14 L22 16 L14 13.5 L13.5 19 L16 21 L16 22 L12 21 L8 22 L8 21 L10.5 19 L10 13.5 L2 16 L2 14 L10 9 Z'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="jet" viewBox="0 0 24 24"><path d="M12 2 L14 9 L22 14 L22 16 L14 13.5 L13.5 19 L16 21 L16 22 L12 21 L8 22 L8 21 L10.5 19 L10 13.5 L2 16 L2 14 L10 9 Z"/></symbol>
+  <symbol id="heli" viewBox="0 0 24 24"><rect x="2" y="3" width="17" height="1.6" rx=".8"/><rect x="9.7" y="4" width="1.6" height="3"/><ellipse cx="9" cy="11" rx="6" ry="4"/><path d="M14 9.4h6.2l1.3-2.6h1.5l-.6 5H14z"/><rect x="3.5" y="17.6" width="11" height="1.4" rx=".7"/><rect x="5.8" y="14.4" width="1.3" height="3.6"/><rect x="10.8" y="14.4" width="1.3" height="3.6"/></symbol>
+  <symbol id="logo" viewBox="0 0 48 48">
+    <circle cx="24" cy="24" r="22.5" fill="#0B1220" stroke="#C9A45C" stroke-width="1.5"/>
+    <circle cx="24" cy="24" r="18.5" fill="none" stroke="#C9A45C" stroke-opacity=".35" stroke-width=".8"/>
+    <path d="M9 37 Q15 31 20 29" fill="none" stroke="#E4C88A" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="1.5 3"/>
+    <g transform="translate(25.5 22.5) rotate(40) scale(1.15) translate(-12 -12)"><path fill="#C9A45C" d="M12 2 L14 9 L22 14 L22 16 L14 13.5 L13.5 19 L16 21 L16 22 L12 21 L8 22 L8 21 L10.5 19 L10 13.5 L2 16 L2 14 L10 9 Z"/></g>
+  </symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="YaanBook home">
+      <svg width="44" height="44" role="img" aria-label="YaanBook jet emblem"><use href="#logo"/></svg>
+      <span><span class="word">Yaan<b>Book</b></span><small>Charter marketplace</small></span>
+    </a>
+    <nav aria-label="Main">
+      <a href="#search">Search</a><a href="#deals">Empty legs</a><a href="#how">How pricing works</a><a href="#operators">Operators</a><a href="join.html">List your aircraft</a>
+    </nav>
+    <a class="btn" href="#search">Find an aircraft</a>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="search">
+  <svg class="contrail" viewBox="0 0 520 300" aria-hidden="true"><path d="M0 290 C160 250 300 170 430 60" stroke="#E4C88A" stroke-width="2" fill="none" stroke-dasharray="2 10" stroke-linecap="round"/><g transform="translate(450 44) rotate(50) scale(3.2) translate(-12 -12)"><use href="#jet" fill="#E4C88A"/></g></svg>
+  <div class="wrap">
+    <div class="eyebrow">Private jets · Helicopters · Every DGCA operator</div>
+    <h1>The nearest aircraft.<br><em>The honest fare.</em></h1>
+    <p class="lead">One search covers <b id="hAc">every</b> charter aircraft from <b id="hOps">all</b> DGCA-licensed operators. We start with the aircraft parked closest to you, so you don't pay for an empty flight from another city, and we show every rupee of the fare.</p>
+
+    <form class="search" id="sf" autocomplete="off">
+      <div class="trip" role="radiogroup" aria-label="Trip type">
+        <label><input type="radio" name="trip" value="one" checked> One way</label>
+        <label><input type="radio" name="trip" value="round"> Round trip</label>
+      </div>
+      <div class="sgrid">
+        <div class="sfield"><label for="sFrom">From</label><input id="sFrom" list="places" placeholder="City or airport" required></div>
+        <button type="button" class="swap" id="swap" aria-label="Swap from and to">⇄</button>
+        <div class="sfield"><label for="sTo">To</label><input id="sTo" list="places" placeholder="City, airport or helipad" required></div>
+        <div class="sfield"><label for="sDate">Departure</label><input type="date" id="sDate" required></div>
+        <div class="sfield" id="retWrap"><label for="sRet">Return</label><input type="date" id="sRet" disabled></div>
+        <div class="sfield"><label for="sPax">Passengers</label><input type="number" id="sPax" min="1" max="60" value="2" inputmode="numeric"></div>
+        <div class="sfield"><label for="sType">Aircraft</label><select id="sType"><option value="any">Any</option><option value="heli">Helicopter</option><option value="tp">Turboprop</option><option value="jet">Jet</option></select></div>
+        <button class="btn sgo" id="sGo">Search</button>
+      </div>
+      <datalist id="places"></datalist>
+      <p class="serr" id="sErr" role="alert"></p>
+      <div class="popular" aria-label="Popular routes"><span>Popular:</span></div>
+    </form>
+  </div>
+</section>
+
+<section class="block wrap" id="results" hidden>
+  <div class="summary" id="summary" aria-live="polite"></div>
+  <div class="rlayout">
+    <aside class="filters card" aria-label="Filter results">
+      <h3>Filter</h3>
+      <fieldset><legend>Category</legend><div id="fCats"></div></fieldset>
+      <fieldset><legend>Maximum total fare</legend><input type="range" id="fMax" min="0" max="100" value="100"><div class="hint" id="fMaxV"></div></fieldset>
+      <fieldset><legend>Positioning</legend><label class="ck"><input type="checkbox" id="fNear"> Only aircraft based at or near my pickup</label></fieldset>
+      <fieldset><legend>Operator</legend><label class="ck"><input type="checkbox" id="fVer"> YaanBook verified partners only</label></fieldset>
+      <button type="button" class="btn ghost small" id="fReset">Reset filters</button>
+    </aside>
+    <div>
+      <div class="rbar">
+        <div class="sorts" role="group" aria-label="Sort results">
+          <button class="chip" data-s="price" aria-pressed="true">Cheapest</button>
+          <button class="chip" data-s="near" aria-pressed="false">Nearest</button>
+          <button class="chip" data-s="fast" aria-pressed="false">Fastest</button>
+          <button class="chip" data-s="seats" aria-pressed="false">Most seats</button>
+        </div>
+        <button class="chip" id="mapToggle" aria-pressed="false">Show map</button>
+      </div>
+      <div class="card mapcard" id="mapcard" hidden><div id="map" role="region" aria-label="Map of the route and aircraft bases"></div>
+        <div class="legend" aria-hidden="true"><span><i class="lv"></i>Your flight</span><span><i class="fr"></i>Empty positioning</span><span><i class="bs"></i>Aircraft base</span></div></div>
+      <div id="deal"></div>
+      <div id="rlist" class="rlist"></div>
+      <button class="btn ghost more" id="rmore" hidden>Show more aircraft</button>
+    </div>
+  </div>
+</section>
+
+<section class="block wrap" id="deals">
+  <div class="head"><div><div class="eyebrow">Empty legs</div><h2>Fly the return leg for a fraction</h2>
+  <p>After a one-way charter the aircraft has to fly home empty anyway. Operators sell those seats at a deep discount. Dates are fixed, so they suit flexible travellers.</p></div>
+  <button class="btn ghost" id="alertBtn">Alert me about a route</button></div>
+  <div class="dgrid" id="dgrid"></div>
+</section>
+
+<section class="block wrap" id="how">
+  <div class="head"><div><div class="eyebrow">How pricing works</div><h2>Why the same flight costs ₹4 lakh at one operator and ₹9 lakh at another</h2></div></div>
+  <div class="howgrid">
+    <div class="howtxt">
+      <p>Charter operators bill for every hour the aircraft flies, <b>including the empty flights</b> to pick you up and to go back home. Ask a Mumbai operator for Delhi → Bengaluru and you pay for Mumbai → Delhi, Delhi → Bengaluru and Bengaluru → Mumbai.</p>
+      <p>YaanBook knows where each aircraft is based, so it calculates the full fare for every one of them and puts the true cheapest first. Usually that's an aircraft already at your departure city or close to it.</p>
+      <ul class="ticks">
+        <li><b>Positioning:</b> the empty flight from the aircraft's base to your pickup.</li>
+        <li><b>Your flight:</b> flight time at the aircraft's cruise speed, plus taxi and climb.</li>
+        <li><b>Return to base:</b> charged on one-way trips unless the operator sells it as an empty leg.</li>
+        <li><b>Minimum billing:</b> most operators bill at least 1 to 2 hours for each day they hold the aircraft for you.</li>
+        <li><b>Night halts, landing and handling</b> for each stop away from base, then <b>18% GST</b>.</li>
+      </ul>
+      <p class="hint">Rates come from verified partners or, for other operators, from typical market rates for the model. Every booking is confirmed with a written quote before you pay anything.</p>
+    </div>
+    <div class="card example" id="example"></div>
+  </div>
+</section>
+
+<section class="block wrap" id="services">
+  <div class="pillars">
+    <div><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/></svg><h3>Only licensed operators</h3><p>Every aircraft comes from the DGCA Non-Scheduled Operator register, with the permit validity shown.</p></div>
+    <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3>Quotes in 30 minutes</h3><p>Your concierge checks availability with the operator and sends a firm written quote.</p></div>
+    <div><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg><h3>No hidden positioning</h3><p>Empty flights, halts, fees and GST are itemised before you request.</p></div>
+    <div><svg viewBox="0 0 24 24"><path d="M3 20h18M6 20V9l6-5 6 5v11M10 20v-5h4v5"/></svg><h3>VIP &amp; protocol</h3><p>Private lounges, discreet ground handling and security coordination for state and corporate travel.</p></div>
+  </div>
+</section>
+
+<section class="block wrap" id="operators">
+  <div class="head"><div><div class="eyebrow">DGCA register</div><h2>Charter operators in India</h2>
+  <p id="opsrc">Every holder of a DGCA Non-Scheduled Operator Permit.</p></div>
+  <a class="btn" href="join.html">Operator? List your fleet</a></div>
+  <div class="opbar" role="group" aria-label="Filter operators">
+    <button class="chip" data-k="all" aria-pressed="true">All</button>
+    <button class="chip" data-k="FW" aria-pressed="false">Planes &amp; jets</button>
+    <button class="chip" data-k="RW" aria-pressed="false">Helicopters</button>
+    <input type="search" id="opq" placeholder="Search operator or aircraft model" aria-label="Search operators">
+    <select id="opcity" aria-label="Filter by city"><option value="">All cities</option></select>
+  </div>
+  <p class="opcount" id="opcount" aria-live="polite"></p>
+  <div class="opgrid" id="opgrid"></div>
+  <button class="btn ghost more" id="opmore" hidden>Show more operators</button>
+</section>
+
+<section class="block wrap" id="status" hidden>
+  <div class="head"><div><div class="eyebrow">My request</div><h2>Check your request</h2>
+  <p>Enter the reference you received and the phone number you booked with.</p></div></div>
+  <div class="stbox"><input type="text" id="sr" placeholder="Reference, e.g. YB-XXXX" aria-label="Request reference"><input type="tel" id="sp" placeholder="Phone number" aria-label="Phone number"><button class="btn" id="stgo">Check status</button></div>
+  <div id="stmsg" aria-live="polite" style="max-width:760px"></div>
+</section>
+</main>
+
+<dialog id="bk" aria-labelledby="bkTitle"><form method="dialog" class="dlg" id="bkForm"></form></dialog>
+<dialog id="al" aria-labelledby="alTitle"><form method="dialog" class="dlg" id="alForm"></form></dialog>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="YaanBook home"><svg width="36" height="36" aria-hidden="true"><use href="#logo"/></svg><span class="word">Yaan<b>Book</b></span></a>
+    <p>YaanBook is a charter broker, not an aircraft operator. Aircraft and operators come from the DGCA list of Non-Scheduled Operators. Bases are taken from each operator's registered city unless the operator has confirmed otherwise. Fares are estimates until the operator confirms in writing. Contact: <a href="mailto:yaanbook@gmail.com">yaanbook@gmail.com</a> · <a href="join.html">List your aircraft</a></p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

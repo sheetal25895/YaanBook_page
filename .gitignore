@@ -1,0 +1,10 @@
+# secrets and customer data: never commit
+.env
+data/enquiries.json
+public/uploads/
+node_modules/
+.DS_Store
+.claude/
+# private business documents and old copies
+docs/
+backup/

@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Gulfstream G650ER",
+    "rate": 850000,
+    "at": "Mumbai",
+    "to": null,
+    "p": 0,
+    "photo": null,
+    "icao24": null
+  },
+  {
+    "id": 2,
+    "name": "Bombardier Global 6000",
+    "rate": 720000,
+    "at": "Delhi",
+    "to": null,
+    "p": 0,
+    "photo": null,
+    "icao24": null
+  },
+  {
+    "id": 3,
+    "name": "Dassault Falcon 2000",
+    "rate": 480000,
+    "at": "Bengaluru",
+    "to": null,
+    "p": 0,
+    "photo": null,
+    "icao24": null
+  },
+  {
+    "id": 4,
+    "name": "Embraer Phenom 300",
+    "rate": 260000,
+    "at": "Hyderabad",
+    "to": null,
+    "p": 0,
+    "photo": null,
+    "icao24": null
+  },
+  {
+    "id": 5,
+    "name": "Citation XLS+",
+    "rate": 290000,
+    "at": "Jaipur",
+    "to": null,
+    "p": 0,
+    "photo": null,
+    "icao24": null
+  },
+  {
+    "id": 6,
+    "name": "AgustaWestland AW139",
+    "rate": 240000,
+    "at": "Delhi",
+    "to": null,
+    "p": 0,
+    "photo": null,
+    "icao24": null
+  },
+  {
+    "id": 7,
+    "name": "Airbus H145",
+    "rate": 160000,
+    "at": "Mumbai",
+    "to": null,
+    "p": 0,
+    "photo": null,
+    "icao24": null
+  },
+  {
+    "id": 8,
+    "name": "Bell 407",
+    "rate": 110000,
+    "at": "Bengaluru",
+    "to": null,
+    "p": 0,
+    "photo": null,
+    "icao24": null
+  }
+]
