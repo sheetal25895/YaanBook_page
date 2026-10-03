@@ -324,9 +324,34 @@ function drawOps() {
     const rows = Object.entries(g).sort((a, b) => b[1].n - a[1].n), fw = o.aircraft.filter(a => a.kind === 'FW').length, rw = o.aircraft.filter(a => a.kind === 'RW').length, bl = o.aircraft.length - fw - rw;
     const mix = [fw && `${fw} plane${fw > 1 ? 's' : ''}`, rw && `${rw} helicopter${rw > 1 ? 's' : ''}`, bl && `${bl} balloon${bl > 1 ? 's' : ''}`].filter(Boolean).join(', ');
     return `<div class="opc"><h3>${esc(o.name)}</h3><div class="meta">${esc(o.city || 'India')} · Permit ${esc(o.aop)} · ${mix}</div>${badge}${verified.has(o.name) ? ' <span class="badge ok">YaanBook partner</span>' : ''}
-      <ul>${rows.slice(0, 4).map(([m, x]) => `<li><span>${x.n > 1 ? x.n + ' × ' : ''}${esc(m)}</span><span>${/^\d+$/.test(x.seats) ? x.seats + ' seats' : esc(x.seats)}</span></li>`).join('')}${rows.length > 4 ? `<li><span>+ ${rows.length - 4} more model${rows.length - 4 > 1 ? 's' : ''}</span><span></span></li>` : ''}</ul></div>`;
+      <ul>${rows.slice(0, 4).map(([m, x]) => `<li><span>${x.n > 1 ? x.n + ' × ' : ''}${esc(m)}</span><span>${/^\d+$/.test(x.seats) ? x.seats + ' seats' : esc(x.seats)}</span></li>`).join('')}${rows.length > 4 ? `<li><button type="button" class="linkbtn" data-fleet="${o.sno}">+ ${rows.length - 4} more model${rows.length - 4 > 1 ? 's' : ''}</button><span></span></li>` : ''}</ul>
+      <button type="button" class="btn ghost small fleetbtn" data-fleet="${o.sno}">View full fleet · ${o.aircraft.length} aircraft</button></div>`;
   }).join('') || `<p class="hint">${OPS.length ? 'No operators match.' : 'The operator list could not load.'}</p>`;
   $('opmore').hidden = l.length <= opShown; $('opmore').textContent = `Show all ${l.length} operators`;
+  $('opgrid').querySelectorAll('[data-fleet]').forEach(b => b.onclick = () => openFleet(+b.dataset.fleet));
+}
+// Full fleet of one operator: every registration on the DGCA list, with what YaanBook knows about it.
+const KIND = { FW: 'Plane', RW: 'Helicopter', B: 'Balloon' };
+function openFleet(sno) {
+  const o = OPS.find(x => x.sno === sno); if (!o) return;
+  const byReg = Object.fromEntries(FLEET.map(a => [a.reg, a])), f = $('flForm');
+  const count = k => o.aircraft.filter(a => a.kind === k).length;
+  f.innerHTML = `${dialogShell(esc(o.name), `${esc(o.city || 'India')} · DGCA permit ${esc(o.aop)}${o.valid ? ' · valid until ' + esc(o.valid) : ''} · ${o.aircraft.length} aircraft (${['FW', 'RW', 'B'].filter(count).map(k => count(k) + ' ' + KIND[k].toLowerCase() + (count(k) > 1 ? 's' : '')).join(', ')})`)}
+    ${o.aircraft.length > 8 ? '<input type="search" id="flq" placeholder="Search registration or model" aria-label="Search this fleet" style="margin-top:14px">' : ''}
+    <div class="fltable"><table class="bd fl"><thead><tr><th>Registration</th><th>Model</th><th>Seats</th><th>Rate / hr</th><th>Live status</th></tr></thead><tbody id="flBody"></tbody></table></div>
+    <p class="hint">From the <a href="${esc(DGCA.sourceUrl)}" target="_blank" rel="noopener">DGCA list</a> dated ${esc(DGCA.updated)}. Rates are typical market rates unless marked verified. Aircraft without a rate are not offered for passenger charter (cargo, survey, training or balloons).</p>`;
+  const draw = () => {
+    const q = ($('flq')?.value || '').trim().toLowerCase();
+    $('flBody').innerHTML = o.aircraft.filter(a => !q || (a.reg + ' ' + a.model).toLowerCase().includes(q)).map(a => {
+      const ac = byReg[a.reg], st = ac ? liveStatus(ac.live) : null;
+      return `<tr><td><b class="amt">${esc(a.reg)}</b></td><td>${esc(a.model)}<br><span class="hint">${KIND[a.kind] || ''}${ac && ac.model !== a.model ? ' · ' + esc(ac.model) : ''}</span></td>
+        <td>${/^\d+$/.test(a.seats) ? a.seats : esc(a.seats)}</td>
+        <td>${ac ? `${inr(ac.rate)}${ac.verified ? ' <span class="tag ok">Verified</span>' : ''}` : '<span class="hint">Not for charter</span>'}</td>
+        <td>${st ? `<span class="sdot ${st.k === 'none' ? '' : st.k}"></span>${esc(st.txt)}${ac.live ? ` <span class="hint">· ${ago(Date.now() - ac.live.seen)}</span>` : ''}` : '<span class="hint">—</span>'}</td></tr>`;
+    }).join('') || '<tr><td colspan="5" class="hint">No aircraft match.</td></tr>';
+  };
+  draw(); if ($('flq')) $('flq').oninput = draw;
+  $('fl').showModal();
 }
 document.querySelectorAll('.opbar .chip').forEach(c => c.onclick = () => { opKind = c.dataset.k; document.querySelectorAll('.opbar .chip').forEach(x => x.setAttribute('aria-pressed', x === c)); opShown = 12; drawOps(); });
 $('opq').oninput = $('opcity').onchange = () => { opShown = 12; drawOps(); };
@@ -447,6 +472,7 @@ Promise.all([fetch('data/operators.json').then(r => r.json()), fetch('data/partn
   [...new Set(OPS.map(o => o.city).filter(Boolean))].sort().forEach(c => $('opcity').add(new Option(c, c)));
   $('opsrc').innerHTML = `Every holder of a DGCA Non-Scheduled Operator Permit, from the <a href="${esc(d.sourceUrl)}" target="_blank" rel="noopener">official DGCA list</a> dated ${esc(d.updated)}. Operators marked as partners have confirmed their bases and rates with YaanBook.`;
   drawOps(); drawDeals(); drawExample();
+  const fm = location.hash.match(/^#fleet-(\d+)$/); if (fm) openFleet(+fm[1]);
   const u = new URLSearchParams(location.search);
   if (u.get('from') && u.get('to')) {
     $('sFrom').value = place(u.get('from')); $('sTo').value = place(u.get('to'));

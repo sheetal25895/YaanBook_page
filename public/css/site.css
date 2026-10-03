@@ -305,3 +305,14 @@ footer .brand .word{color:#fff}
 .themebtn svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
 .themebtn .moon,:root[data-theme=dark] .themebtn .sun{display:none}
 :root[data-theme=dark] .themebtn .moon{display:block}
+
+/* operator fleet list */
+.linkbtn{background:none;border:0;padding:0;color:var(--accent);font-weight:700;font-size:13.5px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.fleetbtn{margin-top:14px;width:100%}
+.opc{display:flex;flex-direction:column}.opc ul{flex:1}
+dialog.wide{width:min(980px,calc(100vw - 32px))}
+.fltable{overflow-x:auto;margin-top:6px}
+.bd.fl th{text-align:left;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:8px 10px 8px 0;border-bottom:1px solid var(--line);white-space:nowrap}
+.bd.fl td{padding:9px 10px 9px 0;vertical-align:top}
+.bd.fl td:last-child{text-align:left;white-space:normal;min-width:180px}
+.bd.fl td:nth-child(4){white-space:nowrap}
